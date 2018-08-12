@@ -20,9 +20,9 @@
 
     <parent>
         <groupId>org.agoncal.training.microservices.commons</groupId>
-        <artifactId>parent-pom</artifactId>
+        <artifactId>commons-pom</artifactId>
         <version>1.0</version>
-        <relativePath>../commons/parent-pom/pom.xml</relativePath>
+        <relativePath>../commons/commons-pom/pom.xml</relativePath>
     </parent>
 
     <groupId>org.agoncal.training.microservices</groupId>

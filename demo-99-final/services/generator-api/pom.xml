@@ -31,7 +31,7 @@
     <name>Microservices Training :: Demo :: 99 Final :: Services :: Generator API</name>
 
     <properties>
-        <executable.jar>${project.artifactId}-${project.version}-swarm.jar</executable.jar>
+        <executable.jar>${project.artifactId}-${project.version}-thorntail.jar</executable.jar>
         <listening.port>8084</listening.port>
     </properties>
 
@@ -40,15 +40,15 @@
         <dependencies>
             <dependency>
                 <groupId>org.agoncal.training.microservices.commons</groupId>
-                <artifactId>parent-bom</artifactId>
+                <artifactId>commons-bom</artifactId>
                 <version>1.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.wildfly.swarm</groupId>
+                <groupId>io.thorntail</groupId>
                 <artifactId>bom</artifactId>
-                <version>${version.wildfly.swarm}</version>
+                <version>${version.thorntail}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -80,8 +80,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
+                <groupId>io.thorntail</groupId>
+                <artifactId>thorntail-maven-plugin</artifactId>
                 <configuration>
                     <properties>
                         <swarm.context.path>${project.artifactId}</swarm.context.path>
@@ -131,7 +131,7 @@
         </dependency>
         <!-- Test Dependencies -->
         <dependency>
-            <groupId>org.wildfly.swarm</groupId>
+            <groupId>io.thorntail</groupId>
             <artifactId>arquillian</artifactId>
         </dependency>
         <dependency>

@@ -27,7 +27,7 @@
 
     <modules>
         <module>commons-cors</module>
-        <module>parent-bom</module>
-        <module>parent-pom</module>
+        <module>commons-bom</module>
+        <module>commons-pom</module>
     </modules>
 </project>
