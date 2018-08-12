@@ -64,7 +64,7 @@
                     <apiSources>
                         <apiSource>
                             <springmvc>false</springmvc>
-                            <locations>org.bakingpie.number</locations>
+                            <locations>org.cdbookstore.number</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:${listening.port}</host>
                             <basePath>/${project.artifactId}/api</basePath>

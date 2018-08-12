@@ -285,7 +285,7 @@
                         <pullRegistry>docker.io</pullRegistry>
                         <images>
                             <image>
-                                <name>baking/${project.artifactId}:rpi</name>
+                                <name>cdbookstore/${project.artifactId}:rpi</name>
                                 <alias>rpi</alias>
                                 <build>
                                     <from>maxleiko/armhf-alpine-java</from>
@@ -311,7 +311,7 @@
                                 </run>
                             </image>
                             <image>
-                                <name>baking/${project.artifactId}:default</name>
+                                <name>cdbookstore/${project.artifactId}:default</name>
                                 <build>
                                     <from>openjdk:8-jre</from>
                                     <ports>
