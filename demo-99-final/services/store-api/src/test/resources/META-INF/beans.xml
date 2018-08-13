@@ -22,6 +22,6 @@
     bean-discovery-mode="annotated">
 
     <alternatives>
-        <class>org.cdbookstore.book.client.api.NumbersApiAlternative</class>
+        <class>org.cdstore.book.client.api.NumbersApiAlternative</class>
     </alternatives>
 </beans>

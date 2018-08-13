@@ -59,7 +59,7 @@
                     <apiSources>
                         <apiSource>
                             <springmvc>false</springmvc>
-                            <locations>org.cdbookstore.book</locations>
+                            <locations>org.cdstore.book</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:${listening.port}</host>
                             <basePath>/book-api/api</basePath>
