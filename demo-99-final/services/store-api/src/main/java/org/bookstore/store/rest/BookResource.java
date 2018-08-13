@@ -1,166 +1,180 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.bookstore.store.rest;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import org.bookstore.store.client.api.NumbersApi;
-import org.bookstore.store.domain.Book;
-import org.bookstore.store.repository.BookRepository;
+import io.swagger.annotations.*;
+import org.bookstore.store.rest.errors.BadRequestAlertException;
+import org.bookstore.store.service.BookService;
+import org.bookstore.store.service.dto.BookDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.validation.Valid;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
 
 import static java.util.Optional.ofNullable;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
-import static javax.ws.rs.core.Response.noContent;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
+import static javax.ws.rs.core.Response.*;
 
+/**
+ * REST controller for managing Book.
+ */
 @ApplicationScoped
 @Path("books")
-@Api(value = "books", description = "Operations for Books.")
+@Api(value = "books", description = "Operations for books.")
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
 
-    // ======================================
-    // =             Injection              =
-    // ======================================
-    @Inject
-    private NumbersApi numbersApi;
+    private static final String ENTITY_NAME = "book";
+
+    private final BookService bookService;
 
     @Inject
-    private BookRepository bookRepository;
-
-    // ======================================
-    // =              Methods               =
-    // ======================================
-
-    @GET
-    @Path("/{id : \\d+}")
-    @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Find a Book by the Id.", response = Book.class)
-    @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "Book found"),
-        @ApiResponse(code = 400, message = "Invalid input"),
-        @ApiResponse(code = 404, message = "Book not found")
-    })
-    public Response findById(@PathParam("id") final Long id) {
-        log.info("Getting the book " + id);
-        return ofNullable(bookRepository.findById(id))
-            .map(Response::ok)
-            .orElse(status(NOT_FOUND))
-            .build();
+    public BookResource(BookService bookService) {
+        this.bookService = bookService;
     }
 
-    @GET
-    @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Find all Books", response = Book.class, responseContainer = "List")
-    @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "All books found"),
-        @ApiResponse(code = 404, message = "Books not found")}
-    )
-    public Response findAll() {
-        log.info("Getting all the books");
-        return ok(bookRepository.findAll()).build();
-    }
-
+    /**
+     * POST  /books : Create a new book.
+     *
+     * @param bookDTO the bookDTO to create
+     * @return the Response with status 201 (Created) and with body the new bookDTO, or with status 400 (Bad Request) if the book has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
     @POST
     @Consumes(APPLICATION_JSON)
-    @ApiOperation(value = "Create a Book")
+    @Produces(APPLICATION_JSON)
+    @ApiOperation(value = "Create a book", response = BookDTO.class)
     @ApiResponses(value = {
         @ApiResponse(code = 201, message = "The book is created"),
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 415, message = "Format is not JSon")
     })
-    // tag::adocSnippet[]
-    public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
-        log.info("Creating the book " + book);
-
-        log.info("Invoking the number-api");
-        String isbn = numbersApi.generateBookNumber();
-        book.setIsbn(isbn);
-
-        log.info("Creating the book with ISBN " + book);
-        final Book created = bookRepository.create(book);
-        URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
-        return Response.created(createdURI).build();
+    public Response createBook(@ApiParam(value = "Author to be created", required = true) @Valid BookDTO bookDTO, @Context UriInfo uriInfo) throws URISyntaxException {
+        log.debug("REST request to save Book : {}", bookDTO);
+        if (bookDTO.getId() != null) {
+            throw new BadRequestAlertException("A new book cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        BookDTO result = bookService.save(bookDTO);
+        URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(result.getId())).build();
+        return Response.created(createdURI).entity(result).build();
     }
-    // end::adocSnippet[]
 
+    /**
+     * PUT  /books : Updates an existing book.
+     *
+     * @param bookDTO the bookDTO to update
+     * @return the Response with status 200 (OK) and with body the updated bookDTO,
+     * or with status 400 (Bad Request) if the bookDTO is not valid,
+     * or with status 500 (Internal Server Error) if the bookDTO couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
     @PUT
-    @Path("/{id : \\d+}")
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Update a Book", response = Book.class)
+    @ApiOperation(value = "Update a Book", response = BookDTO.class)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "The book is updated"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
-    public Response update(@PathParam("id") final Long id, @ApiParam(value = "Book to be updated", required = true) Book book) {
-        log.info("Updating the book " + book);
-        return ok(bookRepository.update(book)).build();
+    public Response updateBook(@ApiParam(value = "Book to be updated", required = true) @Valid BookDTO bookDTO) throws URISyntaxException {
+        log.debug("REST request to update Book : {}", bookDTO);
+        if (bookDTO.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        BookDTO result = bookService.save(bookDTO);
+        return Response.ok(result).build();
     }
 
+    /**
+     * GET  /books : get all the books.
+     *
+     * @return the Response with status 200 (OK) and the list of books in body
+     */
+    @GET
+    @Produces(APPLICATION_JSON)
+    @ApiOperation(value = "Find all books", response = BookDTO.class, responseContainer = "List")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "All authors found"),
+        @ApiResponse(code = 404, message = "Authors not found")}
+    )
+    public Response getAllBooks() {
+        log.debug("REST request to get all Books");
+        List<BookDTO> result = bookService.findAll();
+        return ok(result).build();
+    }
+
+    /**
+     * GET  /books/:id : get the "id" book.
+     *
+     * @param id the id of the bookDTO to retrieve
+     * @return the Response with status 200 (OK) and with body the bookDTO, or with status 404 (Not Found)
+     */
+    @GET
+    @Path("/{id : \\d+}")
+    @Produces(APPLICATION_JSON)
+    @ApiOperation(value = "Find a book by the Id.", response = BookDTO.class)
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Book found"),
+        @ApiResponse(code = 400, message = "Invalid input"),
+        @ApiResponse(code = 404, message = "Book not found")
+    })
+    public Response getBook(@PathParam("id") Long id) {
+        log.debug("REST request to get Book : {}", id);
+        Optional<BookDTO> bookDTO = bookService.findOne(id);
+        return ofNullable(bookDTO)
+            .map(Response::ok)
+            .orElse(status(NOT_FOUND))
+            .build();
+    }
+
+    /**
+     * DELETE  /books/:id : delete the "id" book.
+     *
+     * @param id the id of the bookDTO to delete
+     * @return the Response with status 200 (OK)
+     */
     @DELETE
     @Path("/{id : \\d+}")
-    @ApiOperation(value = "Delete a Book")
+    @ApiOperation(value = "Delete a book")
     @ApiResponses(value = {
         @ApiResponse(code = 204, message = "Book has been deleted"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
-    public Response delete(@PathParam("id") final Long id) {
-        log.info("Deleting the book " + id);
-        bookRepository.deleteById(id);
+    public Response deleteBook(@PathParam("id") Long id) {
+        log.debug("REST request to delete Book : {}", id);
+        bookService.delete(id);
         return noContent().build();
     }
 
+    /**
+     * SEARCH  /search/query : search for the book corresponding
+     * to the query.
+     *
+     * @param query the query of the book search
+     * @return the result of the search
+     */
     @GET
-    @Path("health")
-    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
-    public Response health() {
-        log.info("Alive and Kicking !!!");
-        return Response.ok().build();
+    @Path("/search/{query}")
+    @Produces(APPLICATION_JSON)
+    @ApiOperation(value = "Search for books", response = BookDTO.class, responseContainer = "List")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "books found"),
+        @ApiResponse(code = 404, message = "books not found")}
+    )
+    public Response searchBooks(@ApiParam(value = "Query string", required = true) @PathParam("query") String query) {
+        log.debug("REST request to search for a page of Books for query {}", query);
+        List<BookDTO> result = bookService.search(query);
+        return ok(result).build();
     }
 
-    @GET
-    @Path("number")
-    @ApiOperation(value = "Wraps the Number API to retrive a Book Number", response = String.class)
-    public Response number() {
-        log.info("Invoking the number-api");
-        return Response.ok(numbersApi.generateBookNumber()).build();
-    }
 }

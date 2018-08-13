@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.transaction.Transactional;
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,11 +47,11 @@ public class BookService {
     /**
      * Get all the books.
      *
-     * @param pageable the pagination information
+
      * @return the list of entities
      */
     @Transactional(SUPPORTS)
-    public List<BookDTO> findAll(Pageable pageable) {
+    public List<BookDTO> findAll() {
         log.debug("Request to get all Books");
         return null;
 //

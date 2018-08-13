@@ -38,6 +38,7 @@
         <version.guice>4.2.0</version.guice>
         <version.consul>1.1.2</version.consul>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
+        <version.zalando>0.21.0</version.zalando>
         <!-- Databases -->
         <version.h2>1.4.197</version.h2>
         <!-- Netflix OSS -->
@@ -109,6 +110,11 @@
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${version.mapstruct}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>problem</artifactId>
+                <version>${version.zalando}</version>
             </dependency>
 
             <!-- Databases -->
