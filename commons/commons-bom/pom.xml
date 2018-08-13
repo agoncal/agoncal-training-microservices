@@ -31,15 +31,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependencies -->
-        <version.javaee>7.0</version.javaee>
+        <version.javaee>8.0</version.javaee>
         <version.slf4j>1.7.25</version.slf4j>
-        <version.tomee>7.0.3</version.tomee>
         <version.swagger>1.5.19</version.swagger>
         <version.faker>0.15</version.faker>
         <version.guice>4.2.0</version.guice>
         <version.consul>1.1.2</version.consul>
-        <version.arquillian>1.4.0.Final</version.arquillian>
-        <version.shrinkwrap>2.2.6</version.shrinkwrap>
+        <version.mapstruct>1.2.0.Final</version.mapstruct>
         <!-- Databases -->
         <version.h2>1.4.197</version.h2>
         <!-- Netflix OSS -->
@@ -49,6 +47,8 @@
         <version.feign-form>2.2.1</version.feign-form>
         <version.hystrix>1.5.12</version.hystrix>
         <!-- Test -->
+        <version.arquillian>1.4.0.Final</version.arquillian>
+        <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.junit>4.12</version.junit>
         <version.resteasy>3.1.4.Final</version.resteasy>
     </properties>
@@ -56,12 +56,6 @@
     <dependencyManagement>
         <dependencies>
             <!-- Java EE -->
-            <dependency>
-                <groupId>org.apache.tomee</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>${version.javaee}</version>
-                <scope>provided</scope>
-            </dependency>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
@@ -104,6 +98,17 @@
                 <groupId>org.apache.geronimo.config</groupId>
                 <artifactId>geronimo-config-impl</artifactId>
                 <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${version.mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${version.mapstruct}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- Databases -->
@@ -187,29 +192,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.tomee</groupId>
-                <artifactId>arquillian-tomee-embedded</artifactId>
-                <version>${version.tomee}</version>
-                <scope>test</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.openjpa</groupId>
-                        <artifactId>openjpa</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
                 <groupId>org.jboss.arquillian.junit</groupId>
                 <artifactId>arquillian-junit-container</artifactId>
                 <version>${version.arquillian}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tomee</groupId>
-                <artifactId>arquillian-tomee-remote</artifactId>
-                <version>${version.tomee}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -227,14 +212,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.tomee</groupId>
-                <artifactId>apache-tomee</artifactId>
-                <version>${version.tomee}</version>
-                <scope>test</scope>
-                <type>zip</type>
-                <classifier>webprofile</classifier>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

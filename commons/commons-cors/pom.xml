@@ -44,7 +44,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Java EE 7 dependency -->
+        <!-- Java EE 8 dependency -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>

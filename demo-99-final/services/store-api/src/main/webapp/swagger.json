@@ -207,31 +207,130 @@
     }
   },
   "definitions" : {
-    "Book" : {
+    "Author" : {
       "type" : "object",
+      "required" : [ "firstName", "lastName" ],
       "properties" : {
         "id" : {
           "type" : "integer",
           "format" : "int64"
         },
-        "author" : {
-          "type" : "string"
+        "firstName" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 50
         },
-        "title" : {
-          "type" : "string"
+        "lastName" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 50
         },
-        "year" : {
+        "bio" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 5000
+        },
+        "dateOfBirth" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "preferredLanguage" : {
+          "type" : "string",
+          "enum" : [ "ENGLISH", "FRENCH", "SPANISH", "PORTUGUESE", "ITALIAN", "FINISH", "GERMAN", "DEUTSCH", "RUSSIAN" ]
+        }
+      }
+    },
+    "Book" : {
+      "type" : "object",
+      "required" : [ "isbn", "title" ],
+      "properties" : {
+        "id" : {
           "type" : "integer",
-          "format" : "int32"
-        },
-        "genre" : {
-          "type" : "string"
+          "format" : "int64"
         },
         "isbn" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "title" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 200
+        },
+        "description" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 10000
+        },
+        "price" : {
+          "type" : "number",
+          "minimum" : 1,
+          "exclusiveMinimum" : false
+        },
+        "nbOfPages" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1
+        },
+        "publication" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "language" : {
+          "type" : "string",
+          "enum" : [ "ENGLISH", "FRENCH", "SPANISH", "PORTUGUESE", "ITALIAN", "FINISH", "GERMAN", "DEUTSCH", "RUSSIAN" ]
+        },
+        "smallImageURL" : {
           "type" : "string"
+        },
+        "mediumImageURL" : {
+          "type" : "string"
+        },
+        "authors" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/Author"
+          }
+        },
+        "publisher" : {
+          "$ref" : "#/definitions/Publisher"
+        },
+        "category" : {
+          "$ref" : "#/definitions/Category"
         }
-      },
-      "description" : "Book representation"
+      }
+    },
+    "Category" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 100
+        }
+      }
+    },
+    "Publisher" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 30
+        }
+      }
     }
   }
 }

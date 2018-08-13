@@ -31,7 +31,6 @@
             <property name="cleanOnStartUp">true</property>
             <property name="properties">
                 javax.persistence.provider=org.hibernate.jpa.HibernatePersistenceProvider
-                tomee.jpa.factory.lazy=true
             </property>
             <property name="additionalLibs">
                 mvn:org.hibernate:hibernate-core:5.2.0.Final

@@ -54,13 +54,13 @@
         <version.docker-fabric8.plugin>0.25.2</version.docker-fabric8.plugin>
         <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
         <version.rat>0.10</version.rat>
-        <version.tomee>7.0.3</version.tomee>
         <version.swagger.plugin>3.1.7</version.swagger.plugin>
         <version.thorntail>2.0.0.Final</version.thorntail>
 
         <!-- Versions -->
         <version.nodejs>v9.11.1</version.nodejs>
         <version.yarn>v1.6.0</version.yarn>
+        <version.mapstruct>1.2.0.Final</version.mapstruct>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -132,6 +132,13 @@
                         <target>${version.java}</target>
                         <debug>true</debug>
                         <optimize>true</optimize>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${version.mapstruct}</version>
+                            </path>
+                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -273,7 +280,7 @@
                     </configuration>
                 </plugin>
 
-                <!-- All external Maven plugins ordered by shortname (tomee, thorntail ...) -->
+                <!-- All external Maven plugins ordered by shortname (thorntail ...) -->
                 <plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
@@ -408,42 +415,6 @@
                             <goals>
                                 <goal>check</goal>
                             </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.tomee.maven</groupId>
-                    <artifactId>tomee-maven-plugin</artifactId>
-                    <version>${version.tomee}</version>
-                    <configuration>
-                        <libs>
-                            <lib>remove:openjpa-</lib>
-                            <lib>org.hibernate:hibernate-core:5.2.0.Final</lib>
-                            <lib>org.hibernate.common:hibernate-commons-annotations:5.0.1.Final</lib>
-                            <lib>org.jboss.logging:jboss-logging:3.3.0.Final</lib>
-                            <lib>dom4j:dom4j:1.6.1</lib>
-                            <lib>org.javassist:javassist:3.18.1-GA</lib>
-                            <lib>com.fasterxml:classmate:1.1.0</lib>
-                            <lib>antlr:antlr:2.7.7</lib>
-                        </libs>
-                        <systemVariables>
-                            <javax.persistence.provider>
-                                org.hibernate.jpa.HibernatePersistenceProvider
-                            </javax.persistence.provider>
-                            <tomee.jpa.factory.lazy>true</tomee.jpa.factory.lazy>
-                            <openejb.jaxrs.providers.auto>true</openejb.jaxrs.providers.auto>
-                        </systemVariables>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>executable-jar</id>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                            <phase>package</phase>
-                            <configuration>
-                                <execFile>${project.build.directory}/${project.artifactId}-${project.version}.jar</execFile>
-                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
