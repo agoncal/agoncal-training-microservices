@@ -1,0 +1,16 @@
+entity Book (str_book) {
+    isbn String required maxlength(15),
+    title String required minlength(2) maxlength(200),
+    nbOfCopies Integer required min(0),
+    warehouse Warehouse required,
+    location String,
+    row String,
+}
+
+enum Warehouse {
+  WAREHOUSE_EAST, WAREHOUSE_WEST, WAREHOUSE_EUROPE
+}
+
+
+service * with serviceClass
+dto * with mapstruct

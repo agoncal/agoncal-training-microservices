@@ -1,9 +1,9 @@
-package org.bookstore.store.service;
+package org.bookstore.inventory.service;
 
-import org.bookstore.store.domain.Book;
-import org.bookstore.store.repository.BookRepository;
-import org.bookstore.store.service.dto.BookDTO;
-import org.bookstore.store.service.mapper.BookMapper;
+import org.bookstore.inventory.domain.Book;
+import org.bookstore.inventory.repository.BookRepository;
+import org.bookstore.inventory.service.dto.BookDTO;
+import org.bookstore.inventory.service.mapper.BookMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -83,24 +83,5 @@ public class BookService {
     public void delete(Long id) {
         log.debug("Request to delete Book : {}", id);
         bookRepository.deleteById(id);
-    }
-
-    /**
-     * Search for the book corresponding to the query.
-     *
-     * @param query the query of the search
-     * @return the list of entities
-     */
-    @Transactional(SUPPORTS)
-    public List<BookDTO> search(String query) {
-        log.debug("Request to search for a page of Books for query {}", query);
-        return null;
-//
-//        return bookRepository.search(query)
-//            .map(bookMapper::toDto);
-
-//        return bookRepository.search(query).stream()
-//            .map(bookMapper::toDto)
-//            .collect(Collectors.toCollection(LinkedList::new));
     }
 }

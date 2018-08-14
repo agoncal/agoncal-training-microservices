@@ -31,6 +31,8 @@
 
     <modules>
         <module>generator-api</module>
+        <module>inventory-api</module>
         <module>store-api</module>
+        <module>toprated-api</module>
     </modules>
 </project>

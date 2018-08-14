@@ -1,9 +1,9 @@
-package org.bookstore.store.rest;
+package org.bookstore.toprated.rest;
 
 import io.swagger.annotations.*;
-import org.bookstore.store.rest.errors.BadRequestAlertException;
-import org.bookstore.store.service.BookService;
-import org.bookstore.store.service.dto.BookDTO;
+import org.bookstore.toprated.rest.errors.BadRequestAlertException;
+import org.bookstore.toprated.service.BookService;
+import org.bookstore.toprated.service.dto.BookDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,8 +28,8 @@ import static javax.ws.rs.core.Response.*;
  * REST controller for managing Book.
  */
 @ApplicationScoped
-@Path("books")
-@Api(value = "books", description = "Operations for books.")
+@Path("toprated")
+@Api(value = "toprated", description = "Operations for toprated books.")
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
@@ -53,13 +53,13 @@ public class BookResource {
     @POST
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Create a book", response = BookDTO.class)
+    @ApiOperation(value = "Create a toprated book", response = BookDTO.class)
     @ApiResponses(value = {
-        @ApiResponse(code = 201, message = "The book is created"),
+        @ApiResponse(code = 201, message = "The toprated book is created"),
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 415, message = "Format is not JSon")
     })
-    public Response createBook(@ApiParam(value = "Book to be created", required = true) @Valid BookDTO bookDTO, @Context UriInfo uriInfo) throws URISyntaxException {
+    public Response createBook(@ApiParam(value = "Toprated book to be created", required = true) @Valid BookDTO bookDTO, @Context UriInfo uriInfo) throws URISyntaxException {
         log.debug("REST request to save Book : {}", bookDTO);
         if (bookDTO.getId() != null) {
             throw new BadRequestAlertException("A new book cannot already have an ID", ENTITY_NAME, "idexists");
@@ -81,9 +81,9 @@ public class BookResource {
     @PUT
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Update a Book", response = BookDTO.class)
+    @ApiOperation(value = "Update a toprated Book", response = BookDTO.class)
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "The book is updated"),
+        @ApiResponse(code = 200, message = "The toprated book is updated"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
     public Response updateBook(@ApiParam(value = "Book to be updated", required = true) @Valid BookDTO bookDTO) throws URISyntaxException {
@@ -102,10 +102,10 @@ public class BookResource {
      */
     @GET
     @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Find all books", response = BookDTO.class, responseContainer = "List")
+    @ApiOperation(value = "Find all toprated books", response = BookDTO.class, responseContainer = "List")
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "All books found"),
-        @ApiResponse(code = 404, message = "Books not found")}
+        @ApiResponse(code = 200, message = "All toprated books found"),
+        @ApiResponse(code = 404, message = "Toprated books not found")}
     )
     public Response getAllBooks() {
         log.debug("REST request to get all Books");
@@ -122,11 +122,11 @@ public class BookResource {
     @GET
     @Path("/{id : \\d+}")
     @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Find a book by the Id.", response = BookDTO.class)
+    @ApiOperation(value = "Find a toprated book by the Id.", response = BookDTO.class)
     @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "Book found"),
+        @ApiResponse(code = 200, message = "Toprated Book found"),
         @ApiResponse(code = 400, message = "Invalid input"),
-        @ApiResponse(code = 404, message = "Book not found")
+        @ApiResponse(code = 404, message = "Toprated Book not found")
     })
     public Response getBook(@PathParam("id") Long id) {
         log.debug("REST request to get Book : {}", id);
@@ -145,9 +145,9 @@ public class BookResource {
      */
     @DELETE
     @Path("/{id : \\d+}")
-    @ApiOperation(value = "Delete a book")
+    @ApiOperation(value = "Delete a toprated book")
     @ApiResponses(value = {
-        @ApiResponse(code = 204, message = "Book has been deleted"),
+        @ApiResponse(code = 204, message = "Toprated Book has been deleted"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
     public Response deleteBook(@PathParam("id") Long id) {
@@ -155,26 +155,4 @@ public class BookResource {
         bookService.delete(id);
         return noContent().build();
     }
-
-    /**
-     * SEARCH  /search/query : search for the book corresponding
-     * to the query.
-     *
-     * @param query the query of the book search
-     * @return the result of the search
-     */
-    @GET
-    @Path("/search/{query}")
-    @Produces(APPLICATION_JSON)
-    @ApiOperation(value = "Search for books", response = BookDTO.class, responseContainer = "List")
-    @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "books found"),
-        @ApiResponse(code = 404, message = "books not found")}
-    )
-    public Response searchBooks(@ApiParam(value = "Query string", required = true) @PathParam("query") String query) {
-        log.debug("REST request to search for a page of Books for query {}", query);
-        List<BookDTO> result = bookService.search(query);
-        return ok(result).build();
-    }
-
 }
