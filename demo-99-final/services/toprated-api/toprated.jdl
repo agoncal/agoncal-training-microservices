@@ -1,7 +1,8 @@
 entity Book (str_book) {
     isbn String required maxlength(15),
     title String required minlength(2) maxlength(200),
-    rate Integer min(1) max(5),
+    lastRateUpdate required Instant,
+    rate Integer required min(1) max(5),
     smallImageURL String,
 }
 

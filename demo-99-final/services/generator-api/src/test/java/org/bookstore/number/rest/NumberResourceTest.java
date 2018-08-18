@@ -16,41 +16,36 @@
  */
 package org.bookstore.number.rest;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
-import org.junit.Before;
-import org.junit.Ignore;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.swarm.arquillian.DefaultDeployment;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
-
-import static javax.ws.rs.core.Response.Status.OK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static io.restassured.RestAssured.get;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(Arquillian.class)
 @RunAsClient()
 @DefaultDeployment()
-@Ignore
 public class NumberResourceTest {
 
-    private WebTarget webTarget;
-
-    @Before
-    public void setUp() throws Exception {
-        final Client client = ClientBuilder.newClient();
-        webTarget = client.target("http://localhost:8080").path("api").path("numbers");
+    @BeforeClass
+    public static void setup() throws Exception {
+        RestAssured.baseURI = "http://localhost:8080";
     }
 
     @Test
     public void generateBookNumber() throws Exception {
-        final Response response = webTarget.path("book").request().get();
-        assertEquals(OK.getStatusCode(), response.getStatus());
-        assertTrue(response.readEntity(String.class).startsWith("BK-"));
+        Response response =
+                get("/api/numbers/book")
+                        .then()
+                        .extract().response();
+
+        assertThat(response.getStatusCode()).isEqualTo(200);
+        assertThat(response.asString()).startsWith("BK-");
     }
 }

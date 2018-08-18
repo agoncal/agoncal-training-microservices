@@ -55,7 +55,7 @@
         <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
         <version.rat>0.10</version.rat>
         <version.swagger.plugin>3.1.7</version.swagger.plugin>
-        <version.thorntail>2.0.0.Final</version.thorntail>
+        <version.thorntail>2.1.0.Final</version.thorntail>
 
         <!-- Versions -->
         <version.nodejs>v9.11.1</version.nodejs>

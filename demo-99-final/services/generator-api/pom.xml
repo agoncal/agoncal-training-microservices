@@ -131,6 +131,14 @@
         </dependency>
         <!-- Test Dependencies -->
         <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>arquillian</artifactId>
         </dependency>
@@ -143,4 +151,44 @@
             <artifactId>resteasy-client</artifactId>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>not-skipping-tests</id>
+            <!--<activation>-->
+                <!--<property>-->
+                    <!--<name>!skipTests</name>-->
+                <!--</property>-->
+            <!--</activation>-->
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.thorntail</groupId>
+                        <artifactId>thorntail-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>start</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>start</goal>
+                                </goals>
+                                <configuration>
+                                    <stdoutFile>target/stdout.log</stdoutFile>
+                                    <stderrFile>target/stderr.log</stderrFile>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>stop</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
