@@ -51,7 +51,7 @@
         <version.war.plugin>3.2.2</version.war.plugin>
 
         <!-- External Maven Plugins -->
-        <version.docker-fabric8.plugin>0.25.2</version.docker-fabric8.plugin>
+        <version.docker-fabric8.plugin>0.26.0</version.docker-fabric8.plugin>
         <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
         <version.rat>0.10</version.rat>
         <version.swagger.plugin>3.1.7</version.swagger.plugin>
@@ -288,37 +288,11 @@
                     <configuration>
                         <verbose>true</verbose>
                         <skip>true</skip>
-                        <registry>docker-registry:5000</registry>
-                        <pullRegistry>docker.io</pullRegistry>
+                        <!--<registry>docker-registry:5000</registry>-->
+                        <!--<pullRegistry>docker.io</pullRegistry>-->
                         <images>
                             <image>
-                                <name>cdstore/${project.artifactId}:rpi</name>
-                                <alias>rpi</alias>
-                                <build>
-                                    <from>maxleiko/armhf-alpine-java</from>
-                                    <ports>
-                                        <port>${listening.port}</port>
-                                    </ports>
-                                    <workdir>/usr/local/apps</workdir>
-                                    <assembly>
-                                        <name>usr/local/apps</name>
-                                        <inline>
-                                            <files>
-                                                <file>
-                                                    <source>${project.build.directory}/${executable.jar}</source>
-                                                    <destName>${project.artifactId}.jar</destName>
-                                                </file>
-                                            </files>
-                                        </inline>
-                                    </assembly>
-                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
-                                </build>
-                                <run>
-                                    <skip>true</skip>
-                                </run>
-                            </image>
-                            <image>
-                                <name>cdstore/${project.artifactId}:default</name>
+                                <name>bookstore/${project.artifactId}:${project.version}</name>
                                 <build>
                                     <from>openjdk:8-jre</from>
                                     <ports>

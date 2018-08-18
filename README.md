@@ -1,4 +1,4 @@
-# CD Store
+# Book Store
 
 The idea of the talk and the code, is to slowly build an entire microservice architecture (and deploy it on a cluster of Raspberry Pi). It is based on a DVD/CD/Book store where you can search for items, buy them (using a shopping cart) and see the inventory stock. But the code here has less functionalities.
 
