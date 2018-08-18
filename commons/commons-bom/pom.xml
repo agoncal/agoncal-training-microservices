@@ -39,8 +39,10 @@
         <version.consul>1.2.4</version.consul>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
         <version.zalando>0.21.0</version.zalando>
+        <version.liquibase>3.5.5</version.liquibase>
         <!-- Databases -->
         <version.h2>1.4.197</version.h2>
+        <version.postgresql>42.2.4</version.postgresql>
         <!-- Netflix OSS -->
         <version.archaius>0.7.6</version.archaius>
         <version.governator>1.17.5</version.governator>
@@ -118,12 +120,22 @@
                 <artifactId>problem</artifactId>
                 <version>${version.zalando}</version>
             </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${version.liquibase}</version>
+            </dependency>
 
             <!-- Databases -->
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${version.h2}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${version.postgresql}</version>
             </dependency>
 
             <!-- NetflixOSS -->
