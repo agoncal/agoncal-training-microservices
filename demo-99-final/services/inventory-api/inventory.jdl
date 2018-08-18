@@ -1,4 +1,4 @@
-entity Book (str_book) {
+entity Book (inv_book) {
     isbn String required maxlength(15),
     title String required minlength(2) maxlength(200),
     nbOfCopies Integer required min(0),

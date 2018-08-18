@@ -1,8 +1,8 @@
-entity Book (str_book) {
+entity Book (top_book) {
     isbn String required maxlength(15),
     title String required minlength(2) maxlength(200),
-    lastRateUpdate required Instant,
     rate Integer required min(1) max(5),
+    lastRateUpdate Instant required,
     smallImageURL String,
 }
 
