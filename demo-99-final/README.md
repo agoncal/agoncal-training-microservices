@@ -33,9 +33,18 @@ Build
 
 ```
 $ mvn clean install
-$ mvn docker:build
 ```
 
+Execute 
 
+```
+$ java -jar services/generator-api/target/generator-api-99-thorntail.jar
+```
+
+Then go to [http://localhost:8084/generator-api/api/numbers/book]()
+
+```
+$ mvn docker:build
+```
 
 ## Clients
