@@ -1,101 +1,101 @@
 id;rate;last_rate_update;isbn;title;small_image_url
-1001;5;now();'1931182310';'Advanced Java EE Development for Rational Application Developer 7.5: Developers'' Guidebook';'http://ecx.images-amazon.com/images/I/51bjnhlGbeL._SL75_.jpg'
-1002;5;now();'1931182311';'Advanced Java EE Development for Rational Application Developer 7.5: Developers'' Guidebook Author: Robert McChesney Nov-2011';'http://ecx.images-amazon.com/images/I/51pri75YOPL._SL75_.jpg'
-1003;5;now();'1931182312';'Advanced Java EE Development for Rational Application Developer 7.5: Developers'' Guidebook 2nd , Seco edition by McChesney, Robert, Cole, Kameron, Raszka, Richard (2011) Paperback';'http://ecx.images-amazon.com/images/I/511pqkJd3UL._SL75_.jpg'
-1004;5;now();'1514210959';'Advanced Java EE Development with WildFly';'http://ecx.images-amazon.com/images/I/51f7V8CEb7L._SL75_.jpg'
-1005;5;now();'8894038912';'Advanced Jax-Ws Web Services';'http://ecx.images-amazon.com/images/I/31lRGN%2BfvDL._SL75_.jpg'
-1006;5;now();'0071763929';'Mike Meyers'' Guide to Supporting Windows 7 for CompTIA A+ Certification (Exams 701 & 702) (All-in-One)';'http://ecx.images-amazon.com/images/I/51Dk-Zq2I7L._SL75_.jpg'
-1007;5;now();'1849512442';'Apache Maven 3 Cookbook (Quick Answers to Common Problems)';'http://ecx.images-amazon.com/images/I/41uiGX%2BdFRL._SL75_.jpg'
-1008;5;now();'2746062399';'Apache Tomcat 7 - Guide d''administration du serveur Java EE 6 sous Windows et Linux';'http://ecx.images-amazon.com/images/I/5159Mv-pl3L._SL75_.jpg'
-1009;5;now();'2746086336';'Apache Tomcat 8 - Guide d''administration du serveur Java EE 7 sous Windows et Linux';'http://ecx.images-amazon.com/images/I/413b2IfJmsL._SL75_.jpg'
-1010;5;now();'1492201448';'Apache TomEE Cookbook: Apache TomEE Administrator Cookbook';'http://ecx.images-amazon.com/images/I/61fIAAa6poL._SL75_.jpg'
-1011;5;now();'148885162X';'Application Server 131 Success Secrets: 131 Most Asked Questions On Application Server - What You Need To Know';'http://ecx.images-amazon.com/images/I/51s-9pleKyL._SL75_.jpg'
-1012;5;now();'1782170561';'Applied SOA Patterns on the Oracle Platform';'http://ecx.images-amazon.com/images/I/51eaKOFmswL._SL75_.jpg'
-1013;5;now();'3831141495';'Architektur von Fuzzy-Informationssystemen (German Edition)';'http://ecx.images-amazon.com/images/I/51jK1DkFoyL._SL75_.jpg'
-1014;5;now();'0071809252';'Java: A Beginner''s Guide, Sixth Edition';'http://ecx.images-amazon.com/images/I/51bSQY6AZhL._SL75_.jpg'
-1015;5;now();'0071817913';'jQuery: A Beginner''s Guide';'http://ecx.images-amazon.com/images/I/41qI3mRZp6L._SL75_.jpg'
-1016;5;now();'0992133041';'Java: A Beginner''s Tutorial, Updated for Java SE 8';'http://ecx.images-amazon.com/images/I/41qOj-qckNL._SL75_.jpg'
-1017;5;now();'9781118017';'Beginning Android Application Development';'http://ecx.images-amazon.com/images/I/51-qKJitSbL._SL75_.jpg'
-1018;5;now();'1430246936';'Beginning EJB 3 (Java EE 7 Edition)';'http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg'
-1019;5;now();'1430246937';'Beginning EJB 3, Java EE, 7th 2nd (second) Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny published by Apress (2013)';'http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg'
-1020;5;now();'1430246938';'Beginning EJB 3, Java EE, 7th ed.';'http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg'
-1021;5;now();'1430246928';'Beginning EJB 3, Java EE, 7th Edition';'http://ecx.images-amazon.com/images/I/51bamFsgY9L._SL75_.jpg'
-1022;5;now();'1430246927';'Beginning EJB 3, Java EE, 7th Edition 2nd edition by Wetherbee, Jonathan, Kodali, Raghu, Rathod, Chirag, Zadrozny (2013) Paperback';'http://ecx.images-amazon.com/images/I/51zJ1X%2BhaLL._SL75_.jpg'
-1023;5;now();'1430246926';'Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan Published by Apress 2nd (second) edition (2013) Paperback';'http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg'
-1024;5;now();'1430246925';'Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny (2013) Paperback';'http://ecx.images-amazon.com/images/I/51zJ1X%2BhaLL._SL75_.jpg'
-1025;5;now();'1430246924';'Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Jonathan Wetherbee (26-Apr-2013) Paperback';'http://ecx.images-amazon.com/images/I/51UWE5ZERlL._SL75_.jpg'
-1026;5;now();'1430246923';'Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu (2013) Paperback';'http://ecx.images-amazon.com/images/I/51LujmD8pXL._SL75_.jpg'
-1027;5;now();'1430239093';'Beginning Java 7 (Expert''s Voice in Java)';'http://ecx.images-amazon.com/images/I/41imSrpwTsL._SL75_.jpg'
-1028;5;now();'1590594703';'Beginning Java EE 5: From Novice to Professional';'http://ecx.images-amazon.com/images/I/51hED8w6dIL._SL75_.jpg'
-1029;4;now();'1430219548';'Beginning Java EE 6 Platform with GlassFish 3: From Novice to Professional (Expert''s Voice in Java Technology)';'http://ecx.images-amazon.com/images/I/51RDbgIIVeL._SL75_.jpg'
-1030;4;now();'143022889X';'Beginning Java EE 6 with GlassFish 3 (Expert''s Voice in Java Technology)';'http://ecx.images-amazon.com/images/I/51baRLwlufL._SL75_.jpg'
-1031;4;now();'8132214080';'Beginning Java EE 7';'http://ecx.images-amazon.com/images/I/51-RiUoDB-L._SL75_.jpg'
-1032;4;now();'8132214081';'Beginning Java EE 7 (Expert Voice in Java) 1st (first) by Goncalves, Antonio (2013) Paperback';'http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg'
-1033;4;now();'8132214082';'Beginning Java EE 7 (Expert Voice in Java) 1st edition by Goncalves, Antonio (2013) Paperback';'http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg'
-1034;4;now();'8132214083';'Beginning Java Ee 7 (Expert Voice in Java) by Goncalves, Antonio (2013) Paperback';'http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg'
-1035;4;now();'8132214084';'[(Beginning Java EE 7 )] [Author: Antonio Goncalves] [Jul-2013]';'http://ecx.images-amazon.com/images/I/41UVAFtzrWL._SL75_.jpg'
-1036;4;now();'8132214085';'Beginning Java EE 7 1st (first) Edition by Goncalves, Antonio published by Apress (2013)';'http://ecx.images-amazon.com/images/I/51kab8wbN8L._SL75_.jpg'
-1037;4;now();'8132214086';'Beginning Java EE 7 by Goncalves, Antonio 1st (first) (2013) Paperback';'http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg'
-1038;4;now();'8132214087';'Beginning Java EE 7 by Goncalves, Antonio Published by Apress 1st (first) edition (2013) Paperback';'http://ecx.images-amazon.com/images/I/512GfzWflvL._SL75_.jpg'
-1039;4;now();'1430246235';'Beginning JSP, JSF and Tomcat: Java Web Development (Expert''s Voice in Java)';'http://ecx.images-amazon.com/images/I/513ptwcd6LL._SL75_.jpg'
-1040;4;now();'1118892925';'Beginning Spring';'http://ecx.images-amazon.com/images/I/51cxSKER6RL._SL75_.jpg'
-1041;4;now();'1430219580';'Pro (IBM) WebSphere Application Server 7 Internals (Books for Professionals by Professionals)';'http://ecx.images-amazon.com/images/I/51wU9W4XQWL._SL75_.jpg'
-1042;4;now();'1590599217';'Pro Spring 2.5 (Books for Professionals by Professionals)';'http://ecx.images-amazon.com/images/I/51QuqIMmasL._SL75_.jpg'
-1043;4;now();'1449345158';'Building Modular Cloud Apps with OSGi';'http://ecx.images-amazon.com/images/I/51aq354-msL._SL75_.jpg'
-1044;4;now();'1743042078';'Business Service Management: What you Need to Know For IT Operations Management';'http://ecx.images-amazon.com/images/I/51O3CV7njwL._SL75_.jpg'
-1045;4;now();'1743042077';'By Arun Gupta Java EE 7 Essentials (1st Edition)';'http://ecx.images-amazon.com/images/I/513IEgMKqoL._SL75_.jpg'
-1046;4;now();'1743042076';'By David R. Heffelfinger Java EE 7 with GlassFish 4 Application Server [Paperback]';'http://ecx.images-amazon.com/images/I/51JYTTaAQaL._SL75_.jpg'
-1047;4;now();'1743042075';'By Michal Cmil Java EE 7 Development with WildFly [Paperback]';'http://ecx.images-amazon.com/images/I/51bbP64U%2BtL._SL75_.jpg'
-1048;4;now();'1743042074';'By Osama Oransa Java EE 7 Performance Tuning and Optimization [Paperback]';'http://ecx.images-amazon.com/images/I/41FgF32CLrL._SL75_.jpg'
-1049;4;now();'007174116X';'C# 4.0 The Complete Reference';'http://ecx.images-amazon.com/images/I/5191Jk63NxL._SL75_.jpg'
-1050;4;now();'007174116Y';'CDI Dependency Injection in Java EE 7 (German Edition)';'http://ecx.images-amazon.com/images/I/41oWY8C-RTL._SL75_.jpg'
-1051;4;now();'0071738800';'NetBeans IDE Programmer Certified Expert Exam Guide (Exam 310-045) (Certification Press)';'http://ecx.images-amazon.com/images/I/51qJ9glfNUL._SL75_.jpg'
-1052;4;now();'0072260882';'OCP Java SE 6 Programmer Practice Exams (Exam 310-065) (Certification Press)';'http://ecx.images-amazon.com/images/I/51Xdf65-2uL._SL75_.jpg'
-1053;3;now();'0071765654';'RHCSA/RHCE Red Hat Linux Certification Study Guide (Exams EX200 & EX300), 6th Edition (Certification Press)';'http://ecx.images-amazon.com/images/I/51O5%2BhX4LYL._SL75_.jpg'
-1054;3;now();'0071490035';'SCJA Sun Certified Java Associate Study Guide (Exam CX-310-019) (Certification Press)';'http://ecx.images-amazon.com/images/I/51e6EO5BAdL._SL75_.jpg'
-1055;3;now();'1782165606';'Clojure High Performance Programming';'http://ecx.images-amazon.com/images/I/41WeivZYDuL._SL75_.jpg'
-1056;3;now();'1447151062';'Cloud Computing: Methods and Practical Approaches (Computer Communications and Networks)';'http://ecx.images-amazon.com/images/I/41tmQjJXzsL._SL75_.jpg'
-1057;3;now();'2746068419';'coffret Java EE 6 : développez et déployez une application sous Apache Tomcat 7';'http://ecx.images-amazon.com/images/I/511p2vXqFlL._SL75_.jpg'
-1058;3;now();'3642243517';'ENTERprise Information Systems: International Conference, CENTERIS 2011, Vilamoura, Algarve, Portugal, October 5-7, 2011. Proceedings, Part III (Communications in Computer and Information Science)';'http://ecx.images-amazon.com/images/I/418wVdt4%2BfL._SL75_.jpg'
-1059;3;now();'0782141455';'Enterprise Java 2, J2EE 1.3 Complete';'http://ecx.images-amazon.com/images/I/51NNPS50TRL._SL75_.jpg'
-1060;3;now();'0782141456';'The Computer Shelf.(nonfiction books)(Book review): An article from: Internet Bookwatch';'http://ecx.images-amazon.com/images/I/51NNPS50TRL._SL75_.jpg'
-1061;3;now();'1449328296';'Continuous Enterprise Development in Java';'http://ecx.images-amazon.com/images/I/51CSMefa0lL._SL75_.jpg'
-1062;3;now();'144933704X';'Java Cookbook';'http://ecx.images-amazon.com/images/I/51cilJX4T3L._SL75_.jpg'
-1063;3;now();'3866442718';'Coupled Model Transformations for QoS Enabled Component-Based Software Design';'http://ecx.images-amazon.com/images/I/41GkrpBv7bL._SL75_.jpg'
-1064;3;now();'1932394796';'iText in Action: Creating and Manipulating PDF';'http://ecx.images-amazon.com/images/I/51eqA53HkUL._SL75_.jpg'
-1065;3;now();'0615639453';'Developing Enterprise Applications with Spring: An End-to-End Approach';'http://ecx.images-amazon.com/images/I/41GqC4aKOkL._SL75_.jpg'
-1066;3;now();'1478289317';'Developing Enterprise Applications with Spring: An End-to-End Approach';'http://ecx.images-amazon.com/images/I/410MxEPUF1L._SL75_.jpg'
-1067;3;now();'1782178120';'Developing RESTful Services with JAX-RS 2.0, WebSockets, and JSON';'http://ecx.images-amazon.com/images/I/518dkRyrmyL._SL75_.jpg'
-1068;3;now();'1783288299';'Developing RESTful Web Services with Jersey 2.0';'http://ecx.images-amazon.com/images/I/51xmOMQtc7L._SL75_.jpg'
-1069;3;now();'3319054392';'ECUMICT 2014: Proceedings of the European Conference on the Use of Modern Information and Communication Technologies, Gent, March 2014 (Lecture Notes in Electrical Engineering)';'http://ecx.images-amazon.com/images/I/418YoIyKXKL._SL75_.jpg'
-1070;3;now();'1847195601';'EJB 3 Developer Guide: A Practical Guide for developers and architects to the Enterprise Java Beans Standard.';'http://ecx.images-amazon.com/images/I/41WV60YTuwL._SL75_.jpg'
-1071;3;now();'1935182994';'EJB 3 in Action' 9;'http://ecx.images-amazon.com/images/I/41DEOsLnX3L._SL75_.jpg'
-1072;3;now();'1933988347';'EJB 3 in Action' 9;'http://ecx.images-amazon.com/images/I/415c-uC8TXL._SL75_.jpg'
-1073;3;now();'1783285451';'Enterprise Application Development with Ext JS and Spring';'http://ecx.images-amazon.com/images/I/51wFwTy1PPL._SL75_.jpg'
-1074;3;now();'3826616995';'Enterprise JavaBeans 3.0 mit Eclipse und JBoss: Praxisbuch und Referenz';'http://ecx.images-amazon.com/images/I/51AeBG-ywEL._SL75_.jpg'
-1075;3;now();'0470565454';'Enterprise Software Architecture and Design: Entities, Services, and Resources';'http://ecx.images-amazon.com/images/I/51FH4HeKCUL._SL75_.jpg'
-1076;3;now();'1449356818';'Enterprise Web Development: Building HTML5 Applications: From Desktop to Mobile';'http://ecx.images-amazon.com/images/I/51Twl1%2ByfQL._SL75_.jpg'
-1077;3;now();'3642327192';'Organizations'' Environmental Performance Indicators: Measuring, Monitoring, and Management (Environmental Science and Engineering)';'http://ecx.images-amazon.com/images/I/51b3HzQvghL._SL75_.jpg'
-1078;3;now();'1430244267';'Java EE 7 Recipes: A Problem-Solution Approach (Expert''s Voice in Java)';'http://ecx.images-amazon.com/images/I/51b3HzQvghL._SL75_.jpg'
-1079;3;now();'1430249269';'Pro JPA 2 (Expert''s Voice in Java)';'http://ecx.images-amazon.com/images/I/51vIITEqc-L._SL75_.jpg'
-1080;3;now();'1430250100';'Pro JSF and HTML5: Building Rich Internet Components (Expert''s Voice in Java)';'http://ecx.images-amazon.com/images/I/51NA-Vb5p-L._SL75_.jpg'
-1081;3;now();'0240809777';'The Service-Oriented Media Enterprise: SOA, BPM, and Web Services in Professional Media Systems (Focal Press Media Technology Professional Series)';'http://ecx.images-amazon.com/images/I/51a%2Bv2PzbRL._SL75_.jpg'
-1082;3;now();'383490452X';'Gabler / MLP Berufs- und Karriere-Planer IT und e-business 2007/2008';'http://ecx.images-amazon.com/images/I/51DO9Gq6pnL._SL75_.jpg'
-1083;3;now();'3834908037';'Gabler | MLP Berufs- und Karriere-Planer IT und e-business 2009 | 2010: Für Studenten und Hochschulabsolventen (German Edition)';'http://ecx.images-amazon.com/images/I/51VfKqsAKTL._SL75_.jpg'
-1084;3;now();'1849686963';'Getting Started with Oracle WebLogic Server 12c: Developer''s Guide';'http://ecx.images-amazon.com/images/I/51y5GkJzpzL._SL75_.jpg'
-1085;2;now();'1782164227';'Getting Started with PhantomJS';'http://ecx.images-amazon.com/images/I/51sFGdAwByL._SL75_.jpg'
-1086;2;now();'174244749X';'GIAC Secure Software Programmer - Java certification Exam Certification Exam Preparation Course in a Book for Passing the GSSP - Java Exam - The How To Pass on Your First Try Certification Study Guide';'http://ecx.images-amazon.com/images/I/51ugRTEf6mL._SL75_.jpg'
-1087;2;now();'1847199380';'GlassFish Security';'http://ecx.images-amazon.com/images/I/514slm8Ui%2BL._SL75_.jpg'
-1088;2;now();'3319072927';'HCI in Business: First International Conference, HCIB 2014, Held as Part of HCI International 2014, Heraklion, Crete, Greece, June 22-27, 2014, Proceedings (Lecture Notes in Computer Science)';'http://ecx.images-amazon.com/images/I/41esH%2BvXPJL._SL75_.jpg'
-1089;2;now();'0133067033';'Modern Web Development with IBM WebSphere: Developing, Deploying, and Managing Mobile and Multi-Platform Apps (IBM Press)';'http://ecx.images-amazon.com/images/I/51obk3L-ebL._SL75_.jpg'
-1090;2;now();'1782169970';'Infinispan Data Grid Platform Definitive Guide';'http://ecx.images-amazon.com/images/I/51WunUR14SL._SL75_.jpg'
-1091;2;now();'3658077476';'Informationsintegration in dynamischen Unternehmensnetzwerken: Architektur, Methode und Anwendung (German Edition)';'http://ecx.images-amazon.com/images/I/412ziBjCpCL._SL75_.jpg'
-1092;2;now();'1849698805';'Instant JRebel';'http://ecx.images-amazon.com/images/I/41XsY69si8L._SL75_.jpg'
-1093;2;now();'1849519900';'Instant PrimeFaces Starter';'http://ecx.images-amazon.com/images/I/51pETImO1gL._SL75_.jpg'
-1094;2;now();'2955021431';'Integration Testing from the Trenches';'http://ecx.images-amazon.com/images/I/51593qsrFxL._SL75_.jpg'
-1095;2;now();'1784396931';'IntelliJ IDEA Essentials';'http://ecx.images-amazon.com/images/I/51bjp9RwCBL._SL75_.jpg'
-1096;2;now();'1784396932';'Introducing Java EE 7: A Look at What s New by Juneau, Josh (2013) Paperback';'http://ecx.images-amazon.com/images/I/51AmoETMm4L._SL75_.jpg'
-1097;2;now();'1430258489';'Introducing Java EE 7: A Look at What s New';'http://ecx.images-amazon.com/images/I/5125O5fSJ1L._SL75_.jpg'
-1098;2;now();'1430258488';'Introducing Java EE 7: A Look at What s New (Paperback) - Common';'http://ecx.images-amazon.com/images/I/4196pHw-G2L._SL75_.jpg'
-1099;2;now();'1430258487';'Introducing Java EE 7: A Look at What s New Author: Josh Juneau Jan-2014';'http://ecx.images-amazon.com/images/I/4196pHw-G2L._SL75_.jpg'
-1100;2;now();'1430258486';'Introducing Java EE 7: A Look at What s New 1st (first) Edition by Juneau, Josh published by Apress (2013)';'http://ecx.images-amazon.com/images/I/51ah8wiHJJL._SL75_.jpg'
+1001;5;now();1931182310;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook;http://ecx.images-amazon.com/images/I/51bjnhlGbeL._SL75_.jpg
+1002;5;now();1931182311;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook Author: Robert McChesney Nov-2011;http://ecx.images-amazon.com/images/I/51pri75YOPL._SL75_.jpg
+1003;5;now();1931182312;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook 2nd , Seco edition by McChesney, Robert, Cole, Kameron, Raszka, Richard (2011) Paperback;http://ecx.images-amazon.com/images/I/511pqkJd3UL._SL75_.jpg
+1004;5;now();1514210959;Advanced Java EE Development with WildFly;http://ecx.images-amazon.com/images/I/51f7V8CEb7L._SL75_.jpg
+1005;5;now();8894038912;Advanced Jax-Ws Web Services;http://ecx.images-amazon.com/images/I/31lRGN%2BfvDL._SL75_.jpg
+1006;5;now();7176392999;Mike Meyers' Guide to Supporting Windows 7 for CompTIA A+ Certification (Exams 701 & 702) (All-in-One);http://ecx.images-amazon.com/images/I/51Dk-Zq2I7L._SL75_.jpg
+1007;5;now();1849512442;Apache Maven 3 Cookbook (Quick Answers to Common Problems);http://ecx.images-amazon.com/images/I/41uiGX%2BdFRL._SL75_.jpg
+1008;5;now();2746062399;Apache Tomcat 7 - Guide d'administration du serveur Java EE 6 sous Windows et Linux;http://ecx.images-amazon.com/images/I/5159Mv-pl3L._SL75_.jpg
+1009;5;now();2746086336;Apache Tomcat 8 - Guide d'administration du serveur Java EE 7 sous Windows et Linux;http://ecx.images-amazon.com/images/I/413b2IfJmsL._SL75_.jpg
+1010;5;now();1492201448;Apache TomEE Cookbook: Apache TomEE Administrator Cookbook;http://ecx.images-amazon.com/images/I/61fIAAa6poL._SL75_.jpg
+1011;5;now();148885162X;Application Server 131 Success Secrets: 131 Most Asked Questions On Application Server - What You Need To Know;http://ecx.images-amazon.com/images/I/51s-9pleKyL._SL75_.jpg
+1012;5;now();1782170561;Applied SOA Patterns on the Oracle Platform;http://ecx.images-amazon.com/images/I/51eaKOFmswL._SL75_.jpg
+1013;5;now();3831141495;Architektur von Fuzzy-Informationssystemen (German Edition);http://ecx.images-amazon.com/images/I/51jK1DkFoyL._SL75_.jpg
+1014;5;now();7180925222;Java: A Beginner's Guide, Sixth Edition;http://ecx.images-amazon.com/images/I/51bSQY6AZhL._SL75_.jpg
+1015;5;now();7181791333;jQuery: A Beginner's Guide;http://ecx.images-amazon.com/images/I/41qI3mRZp6L._SL75_.jpg
+1016;5;now();9921330411;Java: A Beginner's Tutorial, Updated for Java SE 8;http://ecx.images-amazon.com/images/I/41qOj-qckNL._SL75_.jpg
+1017;5;now();9781118017;Beginning Android Application Development;http://ecx.images-amazon.com/images/I/51-qKJitSbL._SL75_.jpg
+1018;5;now();1430246936;Beginning EJB 3 (Java EE 7 Edition);http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg
+1019;5;now();1430246937;Beginning EJB 3, Java EE, 7th 2nd (second) Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny published by Apress (2013);http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg
+1020;5;now();1430246938;Beginning EJB 3, Java EE, 7th ed.;http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg
+1021;5;now();1430246928;Beginning EJB 3, Java EE, 7th Edition;http://ecx.images-amazon.com/images/I/51bamFsgY9L._SL75_.jpg
+1022;5;now();1430246927;Beginning EJB 3, Java EE, 7th Edition 2nd edition by Wetherbee, Jonathan, Kodali, Raghu, Rathod, Chirag, Zadrozny (2013) Paperback;http://ecx.images-amazon.com/images/I/51zJ1X%2BhaLL._SL75_.jpg
+1023;5;now();1430246926;Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan Published by Apress 2nd (second) edition (2013) Paperback;http://ecx.images-amazon.com/images/I/51jhGIBW3ZL._SL75_.jpg
+1024;5;now();1430246925;Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny (2013) Paperback;http://ecx.images-amazon.com/images/I/51zJ1X%2BhaLL._SL75_.jpg
+1025;5;now();1430246924;Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Jonathan Wetherbee (26-Apr-2013) Paperback;http://ecx.images-amazon.com/images/I/51UWE5ZERlL._SL75_.jpg
+1026;5;now();1430246923;Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu (2013) Paperback;http://ecx.images-amazon.com/images/I/51LujmD8pXL._SL75_.jpg
+1027;5;now();1430239093;Beginning Java 7 (Expert's Voice in Java);http://ecx.images-amazon.com/images/I/41imSrpwTsL._SL75_.jpg
+1028;5;now();1590594703;Beginning Java EE 5: From Novice to Professional;http://ecx.images-amazon.com/images/I/51hED8w6dIL._SL75_.jpg
+1029;4;now();1430219548;Beginning Java EE 6 Platform with GlassFish 3: From Novice to Professional (Expert's Voice in Java Technology);http://ecx.images-amazon.com/images/I/51RDbgIIVeL._SL75_.jpg
+1030;4;now();143022889X;Beginning Java EE 6 with GlassFish 3 (Expert's Voice in Java Technology);http://ecx.images-amazon.com/images/I/51baRLwlufL._SL75_.jpg
+1031;4;now();8132214080;Beginning Java EE 7;http://ecx.images-amazon.com/images/I/51-RiUoDB-L._SL75_.jpg
+1032;4;now();8132214081;Beginning Java EE 7 (Expert Voice in Java) 1st (first) by Goncalves, Antonio (2013) Paperback;http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg
+1033;4;now();8132214082;Beginning Java EE 7 (Expert Voice in Java) 1st edition by Goncalves, Antonio (2013) Paperback;http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg
+1034;4;now();8132214083;Beginning Java Ee 7 (Expert Voice in Java) by Goncalves, Antonio (2013) Paperback;http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg
+1035;4;now();8132214084;[(Beginning Java EE 7 )] [Author: Antonio Goncalves] [Jul-2013];http://ecx.images-amazon.com/images/I/41UVAFtzrWL._SL75_.jpg
+1036;4;now();8132214085;Beginning Java EE 7 1st (first) Edition by Goncalves, Antonio published by Apress (2013);http://ecx.images-amazon.com/images/I/51kab8wbN8L._SL75_.jpg
+1037;4;now();8132214086;Beginning Java EE 7 by Goncalves, Antonio 1st (first) (2013) Paperback;http://ecx.images-amazon.com/images/I/51amFVZbyKL._SL75_.jpg
+1038;4;now();8132214087;Beginning Java EE 7 by Goncalves, Antonio Published by Apress 1st (first) edition (2013) Paperback;http://ecx.images-amazon.com/images/I/512GfzWflvL._SL75_.jpg
+1039;4;now();1430246235;Beginning JSP, JSF and Tomcat: Java Web Development (Expert's Voice in Java);http://ecx.images-amazon.com/images/I/513ptwcd6LL._SL75_.jpg
+1040;4;now();1118892925;Beginning Spring;http://ecx.images-amazon.com/images/I/51cxSKER6RL._SL75_.jpg
+1041;4;now();1430219580;Pro (IBM) WebSphere Application Server 7 Internals (Books for Professionals by Professionals);http://ecx.images-amazon.com/images/I/51wU9W4XQWL._SL75_.jpg
+1042;4;now();1590599217;Pro Spring 2.5 (Books for Professionals by Professionals);http://ecx.images-amazon.com/images/I/51QuqIMmasL._SL75_.jpg
+1043;4;now();1449345158;Building Modular Cloud Apps with OSGi;http://ecx.images-amazon.com/images/I/51aq354-msL._SL75_.jpg
+1044;4;now();1743042078;Business Service Management: What you Need to Know For IT Operations Management;http://ecx.images-amazon.com/images/I/51O3CV7njwL._SL75_.jpg
+1045;4;now();1743042077;By Arun Gupta Java EE 7 Essentials (1st Edition);http://ecx.images-amazon.com/images/I/513IEgMKqoL._SL75_.jpg
+1046;4;now();1743042076;By David R. Heffelfinger Java EE 7 with GlassFish 4 Application Server [Paperback];http://ecx.images-amazon.com/images/I/51JYTTaAQaL._SL75_.jpg
+1047;4;now();1743042075;By Michal Cmil Java EE 7 Development with WildFly [Paperback];http://ecx.images-amazon.com/images/I/51bbP64U%2BtL._SL75_.jpg
+1048;4;now();1743042074;By Osama Oransa Java EE 7 Performance Tuning and Optimization [Paperback];http://ecx.images-amazon.com/images/I/41FgF32CLrL._SL75_.jpg
+1049;4;now();007174116X;C# 4.0 The Complete Reference;http://ecx.images-amazon.com/images/I/5191Jk63NxL._SL75_.jpg
+1050;4;now();007174116Y;CDI Dependency Injection in Java EE 7 (German Edition);http://ecx.images-amazon.com/images/I/41oWY8C-RTL._SL75_.jpg
+1051;4;now();7173880000;NetBeans IDE Programmer Certified Expert Exam Guide (Exam 310-045) (Certification Press);http://ecx.images-amazon.com/images/I/51qJ9glfNUL._SL75_.jpg
+1052;4;now();7226088222;OCP Java SE 6 Programmer Practice Exams (Exam 310-065) (Certification Press);http://ecx.images-amazon.com/images/I/51Xdf65-2uL._SL75_.jpg
+1053;3;now();7176565444;RHCSA/RHCE Red Hat Linux Certification Study Guide (Exams EX200 & EX300), 6th Edition (Certification Press);http://ecx.images-amazon.com/images/I/51O5%2BhX4LYL._SL75_.jpg
+1054;3;now();7149003555;SCJA Sun Certified Java Associate Study Guide (Exam CX-310-019) (Certification Press);http://ecx.images-amazon.com/images/I/51e6EO5BAdL._SL75_.jpg
+1055;3;now();1782165606;Clojure High Performance Programming;http://ecx.images-amazon.com/images/I/41WeivZYDuL._SL75_.jpg
+1056;3;now();1447151062;Cloud Computing: Methods and Practical Approaches (Computer Communications and Networks);http://ecx.images-amazon.com/images/I/41tmQjJXzsL._SL75_.jpg
+1057;3;now();2746068419;coffret Java EE 6 : développez et déployez une application sous Apache Tomcat 7;http://ecx.images-amazon.com/images/I/511p2vXqFlL._SL75_.jpg
+1058;3;now();3642243517;ENTERprise Information Systems: International Conference, CENTERIS 2011, Vilamoura, Algarve, Portugal, October 5-7, 2011. Proceedings, Part III (Communications in Computer and Information Science);http://ecx.images-amazon.com/images/I/418wVdt4%2BfL._SL75_.jpg
+1059;3;now();7821414555;Enterprise Java 2, J2EE 1.3 Complete;http://ecx.images-amazon.com/images/I/51NNPS50TRL._SL75_.jpg
+1060;3;now();7821414566;The Computer Shelf.(nonfiction books)(Book review): An article from: Internet Bookwatch;http://ecx.images-amazon.com/images/I/51NNPS50TRL._SL75_.jpg
+1061;3;now();1449328296;Continuous Enterprise Development in Java;http://ecx.images-amazon.com/images/I/51CSMefa0lL._SL75_.jpg
+1062;3;now();144933704X;Java Cookbook;http://ecx.images-amazon.com/images/I/51cilJX4T3L._SL75_.jpg
+1063;3;now();3866442718;Coupled Model Transformations for QoS Enabled Component-Based Software Design;http://ecx.images-amazon.com/images/I/41GkrpBv7bL._SL75_.jpg
+1064;3;now();1932394796;iText in Action: Creating and Manipulating PDF;http://ecx.images-amazon.com/images/I/51eqA53HkUL._SL75_.jpg
+1065;3;now();6156394533;Developing Enterprise Applications with Spring: An End-to-End Approach;http://ecx.images-amazon.com/images/I/41GqC4aKOkL._SL75_.jpg
+1066;3;now();1478289317;Developing Enterprise Applications with Spring: An End-to-End Approach;http://ecx.images-amazon.com/images/I/410MxEPUF1L._SL75_.jpg
+1067;3;now();1782178120;Developing RESTful Services with JAX-RS 2.0, WebSockets, and JSON;http://ecx.images-amazon.com/images/I/518dkRyrmyL._SL75_.jpg
+1068;3;now();1783288299;Developing RESTful Web Services with Jersey 2.0;http://ecx.images-amazon.com/images/I/51xmOMQtc7L._SL75_.jpg
+1069;3;now();3319054392;ECUMICT 2014: Proceedings of the European Conference on the Use of Modern Information and Communication Technologies, Gent, March 2014 (Lecture Notes in Electrical Engineering);http://ecx.images-amazon.com/images/I/418YoIyKXKL._SL75_.jpg
+1070;3;now();1847195601;EJB 3 Developer Guide: A Practical Guide for developers and architects to the Enterprise Java Beans Standard.;http://ecx.images-amazon.com/images/I/41WV60YTuwL._SL75_.jpg
+1071;3;now();1935182994;EJB 3 in Action' 9;http://ecx.images-amazon.com/images/I/41DEOsLnX3L._SL75_.jpg
+1072;3;now();1933988347;EJB 3 in Action' 9;http://ecx.images-amazon.com/images/I/415c-uC8TXL._SL75_.jpg
+1073;3;now();1783285451;Enterprise Application Development with Ext JS and Spring;http://ecx.images-amazon.com/images/I/51wFwTy1PPL._SL75_.jpg
+1074;3;now();3826616995;Enterprise JavaBeans 3.0 mit Eclipse und JBoss: Praxisbuch und Referenz;http://ecx.images-amazon.com/images/I/51AeBG-ywEL._SL75_.jpg
+1075;3;now();4705654544;Enterprise Software Architecture and Design: Entities, Services, and Resources;http://ecx.images-amazon.com/images/I/51FH4HeKCUL._SL75_.jpg
+1076;3;now();1449356818;Enterprise Web Development: Building HTML5 Applications: From Desktop to Mobile;http://ecx.images-amazon.com/images/I/51Twl1%2ByfQL._SL75_.jpg
+1077;3;now();3642327192;Organizations' Environmental Performance Indicators: Measuring, Monitoring, and Management (Environmental Science and Engineering);http://ecx.images-amazon.com/images/I/51b3HzQvghL._SL75_.jpg
+1078;3;now();1430244267;Java EE 7 Recipes: A Problem-Solution Approach (Expert's Voice in Java);http://ecx.images-amazon.com/images/I/51b3HzQvghL._SL75_.jpg
+1079;3;now();1430249269;Pro JPA 2 (Expert's Voice in Java);http://ecx.images-amazon.com/images/I/51vIITEqc-L._SL75_.jpg
+1080;3;now();1430250100;Pro JSF and HTML5: Building Rich Internet Components (Expert's Voice in Java);http://ecx.images-amazon.com/images/I/51NA-Vb5p-L._SL75_.jpg
+1081;3;now();2408097777;The Service-Oriented Media Enterprise: SOA, BPM, and Web Services in Professional Media Systems (Focal Press Media Technology Professional Series);http://ecx.images-amazon.com/images/I/51a%2Bv2PzbRL._SL75_.jpg
+1082;3;now();383490452X;Gabler / MLP Berufs- und Karriere-Planer IT und e-business 2007/2008;http://ecx.images-amazon.com/images/I/51DO9Gq6pnL._SL75_.jpg
+1083;3;now();3834908037;Gabler | MLP Berufs- und Karriere-Planer IT und e-business 2009 | 2010: Für Studenten und Hochschulabsolventen (German Edition);http://ecx.images-amazon.com/images/I/51VfKqsAKTL._SL75_.jpg
+1084;3;now();1849686963;Getting Started with Oracle WebLogic Server 12c: Developer's Guide;http://ecx.images-amazon.com/images/I/51y5GkJzpzL._SL75_.jpg
+1085;2;now();1782164227;Getting Started with PhantomJS;http://ecx.images-amazon.com/images/I/51sFGdAwByL._SL75_.jpg
+1086;2;now();174244749X;GIAC Secure Software Programmer - Java certification Exam Certification Exam Preparation Course in a Book for Passing the GSSP - Java Exam - The How To Pass on Your First Try Certification Study Guide;http://ecx.images-amazon.com/images/I/51ugRTEf6mL._SL75_.jpg
+1087;2;now();1847199380;GlassFish Security;http://ecx.images-amazon.com/images/I/514slm8Ui%2BL._SL75_.jpg
+1088;2;now();3319072927;HCI in Business: First International Conference, HCIB 2014, Held as Part of HCI International 2014, Heraklion, Crete, Greece, June 22-27, 2014, Proceedings (Lecture Notes in Computer Science);http://ecx.images-amazon.com/images/I/41esH%2BvXPJL._SL75_.jpg
+1089;2;now();1330670333;Modern Web Development with IBM WebSphere: Developing, Deploying, and Managing Mobile and Multi-Platform Apps (IBM Press);http://ecx.images-amazon.com/images/I/51obk3L-ebL._SL75_.jpg
+1090;2;now();1782169970;Infinispan Data Grid Platform Definitive Guide;http://ecx.images-amazon.com/images/I/51WunUR14SL._SL75_.jpg
+1091;2;now();3658077476;Informationsintegration in dynamischen Unternehmensnetzwerken: Architektur, Methode und Anwendung (German Edition);http://ecx.images-amazon.com/images/I/412ziBjCpCL._SL75_.jpg
+1092;2;now();1849698805;Instant JRebel;http://ecx.images-amazon.com/images/I/41XsY69si8L._SL75_.jpg
+1093;2;now();1849519900;Instant PrimeFaces Starter;http://ecx.images-amazon.com/images/I/51pETImO1gL._SL75_.jpg
+1094;2;now();2955021431;Integration Testing from the Trenches;http://ecx.images-amazon.com/images/I/51593qsrFxL._SL75_.jpg
+1095;2;now();1784396931;IntelliJ IDEA Essentials;http://ecx.images-amazon.com/images/I/51bjp9RwCBL._SL75_.jpg
+1096;2;now();1784396932;Introducing Java EE 7: A Look at What s New by Juneau, Josh (2013) Paperback;http://ecx.images-amazon.com/images/I/51AmoETMm4L._SL75_.jpg
+1097;2;now();1430258489;Introducing Java EE 7: A Look at What s New;http://ecx.images-amazon.com/images/I/5125O5fSJ1L._SL75_.jpg
+1098;2;now();1430258488;Introducing Java EE 7: A Look at What s New (Paperback) - Common;http://ecx.images-amazon.com/images/I/4196pHw-G2L._SL75_.jpg
+1099;2;now();1430258487;Introducing Java EE 7: A Look at What s New Author: Josh Juneau Jan-2014;http://ecx.images-amazon.com/images/I/4196pHw-G2L._SL75_.jpg
+1100;2;now();1430258486;Introducing Java EE 7: A Look at What s New 1st (first) Edition by Juneau, Josh published by Apress (2013);http://ecx.images-amazon.com/images/I/51ah8wiHJJL._SL75_.jpg
