@@ -81,6 +81,55 @@
                     <skip>false</skip>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${version.liquibase}</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
+                    <diffChangeLogFile>
+                        src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml
+                    </diffChangeLogFile>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost:5433/store</url>
+                    <defaultSchemaName></defaultSchemaName>
+                    <username>store</username>
+                    <password></password>
+                    <verbose>true</verbose>
+                    <logging>debug</logging>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <configuration>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost:5433/store</url>
+                    <username>store</username>
+                    <password></password>
+                    <!--all executions are ignored if -Dmaven.test.skip=true-->
+                    <!--<skip>${maven.test.skip}</skip>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>drop-db</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <autocommit>true</autocommit>
+                            <sqlCommand>
+                                DROP SCHEMA public CASCADE;
+                                CREATE SCHEMA public;
+                                GRANT ALL ON SCHEMA public TO postgres;
+                                GRANT ALL ON SCHEMA public TO public;
+                                GRANT ALL ON SCHEMA public TO store;
+                            </sqlCommand>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -138,6 +187,10 @@
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>problem</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
         <!-- Our Dependencies -->
         <dependency>

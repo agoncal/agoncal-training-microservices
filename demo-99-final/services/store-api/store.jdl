@@ -1,6 +1,6 @@
 entity Book (str_book) {
     isbn String required maxlength(15),
-    title String required minlength(2) maxlength(200),
+    title String required minlength(2) maxlength(300),
     description String maxlength(10000),
     price BigDecimal min(1),
     nbOfPages Integer min(1),
