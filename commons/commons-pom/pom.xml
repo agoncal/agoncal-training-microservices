@@ -46,6 +46,7 @@
         <version.shade.plugin>3.1.1</version.shade.plugin>
         <version.site.plugin>3.7.1</version.site.plugin>
         <version.source.plugin>3.0.1</version.source.plugin>
+        <version.sql.plugin>1.5</version.sql.plugin>
         <version.surefire.plugin>2.22.0</version.surefire.plugin>
         <version.versions.plugin>2.5</version.versions.plugin>
         <version.war.plugin>3.2.2</version.war.plugin>
@@ -62,6 +63,9 @@
         <version.nodejs>v9.11.1</version.nodejs>
         <version.yarn>v1.6.0</version.yarn>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
+        <!-- Databases -->
+        <version.h2>1.4.197</version.h2>
+        <version.postgresql>42.2.4</version.postgresql>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -249,6 +253,18 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${version.source.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sql-maven-plugin</artifactId>
+                    <version>${version.sql.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.postgresql</groupId>
+                            <artifactId>postgresql</artifactId>
+                            <version>${version.postgresql}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

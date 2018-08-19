@@ -5,13 +5,14 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
  * A Book.
  */
 @Entity
-@Table(name = "tpr_book")
+@Table(name = "top_book")
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,10 +32,15 @@ public class Book implements Serializable {
     @Column(name = "title", length = 200, nullable = false)
     private String title;
 
+    @NotNull
     @Min(value = 1)
     @Max(value = 5)
-    @Column(name = "rate")
+    @Column(name = "rate", nullable = false)
     private Integer rate;
+
+    @NotNull
+    @Column(name = "last_rate_update", nullable = false)
+    private Instant lastRateUpdate;
 
     @Column(name = "small_image_url")
     private String smallImageURL;
@@ -86,6 +92,19 @@ public class Book implements Serializable {
         this.rate = rate;
     }
 
+    public Instant getLastRateUpdate() {
+        return lastRateUpdate;
+    }
+
+    public Book lastRateUpdate(Instant lastRateUpdate) {
+        this.lastRateUpdate = lastRateUpdate;
+        return this;
+    }
+
+    public void setLastRateUpdate(Instant lastRateUpdate) {
+        this.lastRateUpdate = lastRateUpdate;
+    }
+
     public String getSmallImageURL() {
         return smallImageURL;
     }
@@ -126,6 +145,7 @@ public class Book implements Serializable {
             ", isbn='" + getIsbn() + "'" +
             ", title='" + getTitle() + "'" +
             ", rate=" + getRate() +
+            ", lastRateUpdate='" + getLastRateUpdate() + "'" +
             ", smallImageURL='" + getSmallImageURL() + "'" +
             "}";
     }
