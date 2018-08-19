@@ -28,8 +28,8 @@ public class Book implements Serializable {
     private String isbn;
 
     @NotNull
-    @Size(min = 2, max = 200)
-    @Column(name = "title", length = 200, nullable = false)
+    @Size(min = 2, max = 300)
+    @Column(name = "title", length = 300, nullable = false)
     private String title;
 
     @NotNull
