@@ -1,6 +1,6 @@
 version: '2'
 services:
-    store-postgresql:
+    toprated-postgresql:
         image: postgres:10.4
         # volumes:
         #     - ~/volumes/jhipster/store/postgresql/:/var/lib/postgresql/data/

@@ -14,7 +14,7 @@ import java.util.Objects;
  * A Book.
  */
 @Entity
-@Table(name = "str_book")
+@Table(name = "inv_book")
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,9 +46,6 @@ public class Book implements Serializable {
 
     @Column(name = "location")
     private String location;
-
-    @Column(name = "jhi_row")
-    private String row;
 
     public Long getId() {
         return id;
@@ -123,19 +120,6 @@ public class Book implements Serializable {
         this.location = location;
     }
 
-    public String getRow() {
-        return row;
-    }
-
-    public Book row(String row) {
-        this.row = row;
-        return this;
-    }
-
-    public void setRow(String row) {
-        this.row = row;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -165,7 +149,6 @@ public class Book implements Serializable {
             ", nbOfCopies=" + getNbOfCopies() +
             ", warehouse='" + getWarehouse() + "'" +
             ", location='" + getLocation() + "'" +
-            ", row='" + getRow() + "'" +
             "}";
     }
 }

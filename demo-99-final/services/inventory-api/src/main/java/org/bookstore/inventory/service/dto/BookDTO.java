@@ -32,8 +32,6 @@ public class BookDTO implements Serializable {
 
     private String location;
 
-    private String row;
-
     public Long getId() {
         return id;
     }
@@ -82,14 +80,6 @@ public class BookDTO implements Serializable {
         this.location = location;
     }
 
-    public String getRow() {
-        return row;
-    }
-
-    public void setRow(String row) {
-        this.row = row;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -120,7 +110,6 @@ public class BookDTO implements Serializable {
             ", nbOfCopies=" + getNbOfCopies() +
             ", warehouse='" + getWarehouse() + "'" +
             ", location='" + getLocation() + "'" +
-            ", row='" + getRow() + "'" +
             "}";
     }
 }

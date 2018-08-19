@@ -47,4 +47,19 @@ Then go to [http://localhost:8084/generator-api/api/numbers/book]()
 $ mvn docker:build
 ```
 
+## Databases
+
+Drop database
+
+```
+$ mvn sql:execute test
+```
+
+Liquibase
+
+```
+$ mvn clean compile
+$ mvn liquibase:update
+```
+
 ## Clients

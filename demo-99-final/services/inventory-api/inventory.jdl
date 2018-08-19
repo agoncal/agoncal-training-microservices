@@ -1,10 +1,9 @@
 entity Book (inv_book) {
     isbn String required maxlength(15),
-    title String required minlength(2) maxlength(200),
+    title String required minlength(2) maxlength(300),
     nbOfCopies Integer required min(0),
     warehouse Warehouse required,
     location String,
-    row String,
 }
 
 enum Warehouse {
