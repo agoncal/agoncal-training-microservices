@@ -27,6 +27,10 @@
                   file="config/liquibase/data/str_book.csv"
                   tableName="str_book">
         </loadData>
+        <loadData encoding="UTF-8" separator=";"
+                  file="config/liquibase/data/book_authors.csv"
+                  tableName="book_authors">
+        </loadData>
     </changeSet>
 
 </databaseChangeLog>
