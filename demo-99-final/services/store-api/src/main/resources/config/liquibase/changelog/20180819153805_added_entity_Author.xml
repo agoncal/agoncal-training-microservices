@@ -41,9 +41,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="book_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
         </createTable>
         
     </changeSet>

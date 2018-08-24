@@ -20,5 +20,16 @@
                                  referencedColumnNames="id"
                                  referencedTableName="str_category"/>
 
+        <addForeignKeyConstraint baseColumnNames="books_id"
+                                 baseTableName="book_authors"
+                                 constraintName="fk_book_authors_books_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="str_book"/>
+        <addForeignKeyConstraint baseColumnNames="authors_id"
+                                 baseTableName="book_authors"
+                                 constraintName="fk_book_authors_authors_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="str_author"/>
+        
     </changeSet>
 </databaseChangeLog>

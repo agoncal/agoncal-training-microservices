@@ -751,13 +751,6 @@
         "preferredLanguage" : {
           "type" : "string",
           "enum" : [ "ENGLISH", "FRENCH", "SPANISH", "PORTUGUESE", "ITALIAN", "FINISH", "GERMAN", "DEUTSCH", "RUSSIAN" ]
-        },
-        "bookId" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "bookTitle" : {
-          "type" : "string"
         }
       }
     },
@@ -777,7 +770,7 @@
         "title" : {
           "type" : "string",
           "minLength" : 2,
-          "maxLength" : 200
+          "maxLength" : 300
         },
         "description" : {
           "type" : "string",
@@ -808,18 +801,18 @@
         "mediumImageURL" : {
           "type" : "string"
         },
+        "publisher" : {
+          "$ref" : "#/definitions/Publisher"
+        },
+        "category" : {
+          "$ref" : "#/definitions/Category"
+        },
         "authors" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/Author"
           }
-        },
-        "publisher" : {
-          "$ref" : "#/definitions/Publisher"
-        },
-        "category" : {
-          "$ref" : "#/definitions/Category"
         }
       }
     },
@@ -839,7 +832,7 @@
         "title" : {
           "type" : "string",
           "minLength" : 2,
-          "maxLength" : 200
+          "maxLength" : 300
         },
         "description" : {
           "type" : "string",
@@ -883,6 +876,13 @@
         },
         "categoryName" : {
           "type" : "string"
+        },
+        "authors" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/AuthorDTO"
+          }
         }
       }
     },

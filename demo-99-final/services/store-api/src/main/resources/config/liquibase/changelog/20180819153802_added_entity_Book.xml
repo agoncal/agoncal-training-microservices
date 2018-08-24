@@ -64,7 +64,19 @@
             <column name="category_id" type="bigint">
                 <constraints nullable="true" />
             </column>
+
         </createTable>
+        
+        <createTable tableName="book_authors">
+            <column name="authors_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="books_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <addPrimaryKey columnNames="books_id, authors_id" tableName="book_authors"/>
         
     </changeSet>
 </databaseChangeLog>

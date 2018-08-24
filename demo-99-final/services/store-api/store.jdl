@@ -30,7 +30,7 @@ entity Author (str_author) {
     preferredLanguage Language,
 }
 
-relationship OneToMany {
+relationship ManyToMany {
     Book{authors} to Author{book(title)}
 }
 

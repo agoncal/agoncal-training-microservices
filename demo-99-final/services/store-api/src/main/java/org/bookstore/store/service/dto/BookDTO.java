@@ -9,7 +9,9 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the Book entity.
@@ -23,7 +25,7 @@ public class BookDTO implements Serializable {
     private String isbn;
 
     @NotNull
-    @Size(min = 2, max = 200)
+    @Size(min = 2, max = 300)
     private String title;
 
     @Size(max = 10000)
@@ -50,6 +52,8 @@ public class BookDTO implements Serializable {
     private Long categoryId;
 
     private String categoryName;
+
+    private Set<AuthorDTO> authors = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -161,6 +165,14 @@ public class BookDTO implements Serializable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public Set<AuthorDTO> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<AuthorDTO> authors) {
+        this.authors = authors;
     }
 
     @Override

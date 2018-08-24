@@ -30,10 +30,6 @@ public class AuthorDTO implements Serializable {
 
     private Language preferredLanguage;
 
-    private Long bookId;
-
-    private String bookTitle;
-
     public Long getId() {
         return id;
     }
@@ -82,22 +78,6 @@ public class AuthorDTO implements Serializable {
         this.preferredLanguage = preferredLanguage;
     }
 
-    public Long getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(Long bookId) {
-        this.bookId = bookId;
-    }
-
-    public String getBookTitle() {
-        return bookTitle;
-    }
-
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -128,8 +108,6 @@ public class AuthorDTO implements Serializable {
             ", bio='" + getBio() + "'" +
             ", dateOfBirth='" + getDateOfBirth() + "'" +
             ", preferredLanguage='" + getPreferredLanguage() + "'" +
-            ", book=" + getBookId() +
-            ", book='" + getBookTitle() + "'" +
             "}";
     }
 }

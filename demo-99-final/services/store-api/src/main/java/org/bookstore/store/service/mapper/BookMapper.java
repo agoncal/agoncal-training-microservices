@@ -7,7 +7,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Book and its DTO BookDTO.
  */
-@Mapper(componentModel = "cdi", uses = {PublisherMapper.class, CategoryMapper.class})
+@Mapper(componentModel = "cdi", uses = {PublisherMapper.class, CategoryMapper.class, AuthorMapper.class})
 public interface BookMapper extends EntityMapper<BookDTO, Book> {
 
     @Mapping(source = "publisher.id", target = "publisherId")
@@ -16,7 +16,6 @@ public interface BookMapper extends EntityMapper<BookDTO, Book> {
     @Mapping(source = "category.name", target = "categoryName")
     BookDTO toDto(Book book);
 
-    @Mapping(target = "authors", ignore = true)
     @Mapping(source = "publisherId", target = "publisher")
     @Mapping(source = "categoryId", target = "category")
     Book toEntity(BookDTO bookDTO);

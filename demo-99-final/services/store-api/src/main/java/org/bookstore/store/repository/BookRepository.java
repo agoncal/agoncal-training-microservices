@@ -24,7 +24,6 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
@@ -51,6 +50,12 @@ public class BookRepository {
     public List<Book> findAll() {
         return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
     }
+
+//    @Query(value = "select distinct str_book from Book str_book left join fetch str_book.authors")
+//    List<Book> findAllWithEagerRelationships();
+//
+//    @Query("select str_book from Book str_book left join fetch str_book.authors where str_book.id =:id")
+//    Optional<Book> findOneWithEagerRelationships(@Param("id") Long id);
 
     @Transactional(REQUIRED)
     public Book create(final Book book) {

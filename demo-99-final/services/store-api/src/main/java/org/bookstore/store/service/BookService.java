@@ -61,6 +61,15 @@ public class BookService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+    /**
+     * Get all the Book with eager load of many-to-many relationships.
+     *
+     * @return the list of entities
+     */
+//    public Page<BookDTO> findAllWithEagerRelationships(Pageable pageable) {
+//        return bookRepository.findAllWithEagerRelationships(pageable).map(bookMapper::toDto);
+//    }
+
 
     /**
      * Get one book by id.

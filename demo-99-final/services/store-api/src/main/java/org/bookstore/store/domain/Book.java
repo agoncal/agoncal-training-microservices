@@ -1,5 +1,6 @@
 package org.bookstore.store.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.bookstore.store.domain.enumeration.Language;
 
 import javax.persistence.*;
@@ -34,8 +35,8 @@ public class Book implements Serializable {
     private String isbn;
 
     @NotNull
-    @Size(min = 2, max = 200)
-    @Column(name = "title", length = 200, nullable = false)
+    @Size(min = 2, max = 300)
+    @Column(name = "title", length = 300, nullable = false)
     private String title;
 
     @Size(max = 10000)
@@ -63,14 +64,19 @@ public class Book implements Serializable {
     @Column(name = "medium_image_url")
     private String mediumImageURL;
 
-    @OneToMany(mappedBy = "book")
-    private Set<Author> authors = new HashSet<>();
-
     @ManyToOne
+    @JsonIgnoreProperties("")
     private Publisher publisher;
 
     @ManyToOne
+    @JsonIgnoreProperties("")
     private Category category;
+
+    @ManyToMany
+    @JoinTable(name = "book_authors",
+               joinColumns = @JoinColumn(name = "books_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "authors_id", referencedColumnName = "id"))
+    private Set<Author> authors = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -197,29 +203,6 @@ public class Book implements Serializable {
         this.mediumImageURL = mediumImageURL;
     }
 
-    public Set<Author> getAuthors() {
-        return authors;
-    }
-
-    public Book authors(Set<Author> authors) {
-        this.authors = authors;
-        return this;
-    }
-
-    public Book addAuthors(Author author) {
-        this.authors.add(author);
-        return this;
-    }
-
-    public Book removeAuthors(Author author) {
-        this.authors.remove(author);
-        return this;
-    }
-
-    public void setAuthors(Set<Author> authors) {
-        this.authors = authors;
-    }
-
     public Publisher getPublisher() {
         return publisher;
     }
@@ -245,6 +228,32 @@ public class Book implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public Book authors(Set<Author> authors) {
+        this.authors = authors;
+        return this;
+    }
+
+    public Book addAuthors(Author author) {
+        this.authors.add(author);
+        author.getBooks().add(this);
+        return this;
+    }
+
+    public Book removeAuthors(Author author) {
+        this.authors.remove(author);
+        author.getBooks().remove(this);
+        return this;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {

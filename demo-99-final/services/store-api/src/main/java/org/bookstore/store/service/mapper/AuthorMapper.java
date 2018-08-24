@@ -10,6 +10,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "cdi", uses = {})
 public interface AuthorMapper extends EntityMapper<AuthorDTO, Author> {
 
+
+    @Mapping(target = "books", ignore = true)
+    Author toEntity(AuthorDTO authorDTO);
+
     default Author fromId(Long id) {
         if (id == null) {
             return null;

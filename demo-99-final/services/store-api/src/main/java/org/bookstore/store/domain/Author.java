@@ -1,5 +1,6 @@
 package org.bookstore.store.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.bookstore.store.domain.enumeration.Language;
 
 import javax.persistence.*;
@@ -7,7 +8,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Author.
@@ -43,6 +46,10 @@ public class Author implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "preferred_language")
     private Language preferredLanguage;
+
+    @ManyToMany(mappedBy = "authors")
+    @JsonIgnore
+    private Set<Book> books = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -116,6 +123,32 @@ public class Author implements Serializable {
     public void setPreferredLanguage(Language preferredLanguage) {
         this.preferredLanguage = preferredLanguage;
     }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public Author books(Set<Book> books) {
+        this.books = books;
+        return this;
+    }
+
+    public Author addBook(Book book) {
+        this.books.add(book);
+        book.getAuthors().add(this);
+        return this;
+    }
+
+    public Author removeBook(Book book) {
+        this.books.remove(book);
+        book.getAuthors().remove(this);
+        return this;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
