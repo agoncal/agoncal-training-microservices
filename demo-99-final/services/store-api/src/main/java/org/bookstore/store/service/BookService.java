@@ -35,7 +35,7 @@ public class BookService {
     }
 
     /**
-     * Save a book.
+     * Save a book
      *
      * @param bookDTO the entity to save
      * @return the persisted entity
