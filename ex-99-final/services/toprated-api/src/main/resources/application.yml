@@ -1,0 +1,13 @@
+server:
+    port: 8084
+    address: localhost
+
+spring:
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5434/toprated
+        username: toprated
+        password:
+    jpa:
+        properties:
+            hibernate.temp.use_jdbc_metadata_defaults: false

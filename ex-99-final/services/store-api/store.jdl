@@ -1,0 +1,43 @@
+entity Book (str_book) {
+    isbn String required maxlength(15),
+    title String required minlength(2) maxlength(300),
+    description String maxlength(10000),
+    price BigDecimal min(1),
+    nbOfPages Integer min(1),
+    publication LocalDate,
+    language Language,
+    smallImageURL String,
+    mediumImageURL String,
+}
+
+enum Language {
+  ENGLISH, FRENCH, SPANISH, PORTUGUESE, ITALIAN, FINISH, GERMAN, DEUTSCH, RUSSIAN
+}
+
+entity Publisher (str_publisher) {
+    name String required minlength(2) maxlength(30),
+}
+
+entity Category (str_category) {
+    name String required minlength(2) maxlength(100),
+}
+
+entity Author (str_author) {
+    firstName String required minlength(2) maxlength(50),
+    lastName String required minlength(2) maxlength(50),
+    bio String maxlength(5000),
+    dateOfBirth LocalDate,
+    preferredLanguage Language,
+}
+
+relationship ManyToMany {
+    Book{authors} to Author{book(title)}
+}
+
+relationship ManyToOne {
+    Book{publisher(name)} to Publisher,
+    Book{category(name)} to Category
+}
+
+service * with serviceClass
+dto * with mapstruct
