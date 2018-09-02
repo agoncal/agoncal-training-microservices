@@ -27,6 +27,6 @@
 
     <modules>
         <module>commons</module>
-        <module>demo-99-final</module>
+        <module>ex-99-final</module>
     </modules>
 </project>
