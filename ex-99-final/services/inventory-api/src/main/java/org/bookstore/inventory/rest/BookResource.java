@@ -42,7 +42,6 @@ public class BookResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/books")
-    @Timed
     public ResponseEntity<BookDTO> createBook(@Valid @RequestBody BookDTO bookDTO) throws URISyntaxException {
         log.debug("REST request to save Book : {}", bookDTO);
         if (bookDTO.getId() != null) {
@@ -64,7 +63,6 @@ public class BookResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/books")
-    @Timed
     public ResponseEntity<BookDTO> updateBook(@Valid @RequestBody BookDTO bookDTO) throws URISyntaxException {
         log.debug("REST request to update Book : {}", bookDTO);
         if (bookDTO.getId() == null) {
@@ -82,7 +80,6 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK) and the list of books in body
      */
     @GetMapping("/books")
-    @Timed
     public List<BookDTO> getAllBooks() {
         log.debug("REST request to get all Books");
         return bookService.findAll();
@@ -95,7 +92,6 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK) and with body the bookDTO, or with status 404 (Not Found)
      */
     @GetMapping("/books/{id}")
-    @Timed
     public ResponseEntity<BookDTO> getBook(@PathVariable Long id) {
         log.debug("REST request to get Book : {}", id);
         Optional<BookDTO> bookDTO = bookService.findOne(id);
@@ -109,7 +105,6 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/books/{id}")
-    @Timed
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         log.debug("REST request to delete Book : {}", id);
         bookService.delete(id);
