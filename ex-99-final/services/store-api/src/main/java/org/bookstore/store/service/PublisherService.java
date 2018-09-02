@@ -2,20 +2,27 @@ package org.bookstore.store.service;
 
 import org.bookstore.store.domain.Publisher;
 import org.bookstore.store.repository.PublisherRepository;
+import org.bookstore.store.repository.search.PublisherSearchRepository;
 import org.bookstore.store.service.dto.PublisherDTO;
 import org.bookstore.store.service.mapper.PublisherMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
-import static javax.transaction.Transactional.TxType.SUPPORTS;
+import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing Publisher.
  */
+@Service
 @Transactional
 public class PublisherService {
 
@@ -25,9 +32,12 @@ public class PublisherService {
 
     private final PublisherMapper publisherMapper;
 
-    public PublisherService(PublisherRepository publisherRepository, PublisherMapper publisherMapper) {
+    private final PublisherSearchRepository publisherSearchRepository;
+
+    public PublisherService(PublisherRepository publisherRepository, PublisherMapper publisherMapper, PublisherSearchRepository publisherSearchRepository) {
         this.publisherRepository = publisherRepository;
         this.publisherMapper = publisherMapper;
+        this.publisherSearchRepository = publisherSearchRepository;
     }
 
     /**
@@ -41,6 +51,7 @@ public class PublisherService {
         Publisher publisher = publisherMapper.toEntity(publisherDTO);
         publisher = publisherRepository.save(publisher);
         PublisherDTO result = publisherMapper.toDto(publisher);
+        publisherSearchRepository.save(publisher);
         return result;
     }
 
@@ -49,13 +60,12 @@ public class PublisherService {
      *
      * @return the list of entities
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public List<PublisherDTO> findAll() {
         log.debug("Request to get all Publishers");
-        return null;
-//
-//        return publisherRepository.findAll()
-//            .map(publisherMapper::toDto);
+        return publisherRepository.findAll().stream()
+            .map(publisherMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
 
@@ -65,7 +75,7 @@ public class PublisherService {
      * @param id the id of the entity
      * @return the entity
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public Optional<PublisherDTO> findOne(Long id) {
         log.debug("Request to get Publisher : {}", id);
         return publisherRepository.findById(id)
@@ -80,5 +90,21 @@ public class PublisherService {
     public void delete(Long id) {
         log.debug("Request to delete Publisher : {}", id);
         publisherRepository.deleteById(id);
+        publisherSearchRepository.deleteById(id);
+    }
+
+    /**
+     * Search for the publisher corresponding to the query.
+     *
+     * @param query the query of the search
+     * @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<PublisherDTO> search(String query) {
+        log.debug("Request to search Publishers for query {}", query);
+        return StreamSupport
+            .stream(publisherSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+            .map(publisherMapper::toDto)
+            .collect(Collectors.toList());
     }
 }

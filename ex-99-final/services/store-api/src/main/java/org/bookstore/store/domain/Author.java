@@ -2,8 +2,6 @@ package org.bookstore.store.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.bookstore.store.domain.enumeration.Language;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,8 +17,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "str_author")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "author")
 public class Author implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,7 +49,6 @@ public class Author implements Serializable {
 
     @ManyToMany(mappedBy = "authors")
     @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Book> books = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

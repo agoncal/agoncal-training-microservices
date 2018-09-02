@@ -2,12 +2,13 @@ package org.bookstore.store.service.mapper;
 
 import org.bookstore.store.domain.Book;
 import org.bookstore.store.service.dto.BookDTO;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Mapper for the entity Book and its DTO BookDTO.
  */
-@Mapper(componentModel = "cdi", uses = {PublisherMapper.class, CategoryMapper.class, AuthorMapper.class})
+@Mapper(componentModel = "spring", uses = {PublisherMapper.class, CategoryMapper.class, AuthorMapper.class})
 public interface BookMapper extends EntityMapper<BookDTO, Book> {
 
     @Mapping(source = "publisher.id", target = "publisherId")

@@ -2,20 +2,27 @@ package org.bookstore.store.service;
 
 import org.bookstore.store.domain.Category;
 import org.bookstore.store.repository.CategoryRepository;
+import org.bookstore.store.repository.search.CategorySearchRepository;
 import org.bookstore.store.service.dto.CategoryDTO;
 import org.bookstore.store.service.mapper.CategoryMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
-import static javax.transaction.Transactional.TxType.SUPPORTS;
+import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing Category.
  */
+@Service
 @Transactional
 public class CategoryService {
 
@@ -25,9 +32,12 @@ public class CategoryService {
 
     private final CategoryMapper categoryMapper;
 
-    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
+    private final CategorySearchRepository categorySearchRepository;
+
+    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper, CategorySearchRepository categorySearchRepository) {
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
+        this.categorySearchRepository = categorySearchRepository;
     }
 
     /**
@@ -41,6 +51,7 @@ public class CategoryService {
         Category category = categoryMapper.toEntity(categoryDTO);
         category = categoryRepository.save(category);
         CategoryDTO result = categoryMapper.toDto(category);
+        categorySearchRepository.save(category);
         return result;
     }
 
@@ -49,13 +60,12 @@ public class CategoryService {
      *
      * @return the list of entities
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public List<CategoryDTO> findAll() {
         log.debug("Request to get all Categories");
-        return null;
-//
-//        return categoryRepository.findAll()
-//            .map(categoryMapper::toDto);
+        return categoryRepository.findAll().stream()
+            .map(categoryMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
 
@@ -65,7 +75,7 @@ public class CategoryService {
      * @param id the id of the entity
      * @return the entity
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public Optional<CategoryDTO> findOne(Long id) {
         log.debug("Request to get Category : {}", id);
         return categoryRepository.findById(id)
@@ -80,5 +90,21 @@ public class CategoryService {
     public void delete(Long id) {
         log.debug("Request to delete Category : {}", id);
         categoryRepository.deleteById(id);
+        categorySearchRepository.deleteById(id);
+    }
+
+    /**
+     * Search for the category corresponding to the query.
+     *
+     * @param query the query of the search
+     * @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<CategoryDTO> search(String query) {
+        log.debug("Request to search Categories for query {}", query);
+        return StreamSupport
+            .stream(categorySearchRepository.search(queryStringQuery(query)).spliterator(), false)
+            .map(categoryMapper::toDto)
+            .collect(Collectors.toList());
     }
 }

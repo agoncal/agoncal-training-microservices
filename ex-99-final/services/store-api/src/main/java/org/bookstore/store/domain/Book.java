@@ -2,8 +2,6 @@ package org.bookstore.store.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.bookstore.store.domain.enumeration.Language;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
@@ -22,8 +20,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "str_book")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "book")
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -77,7 +73,6 @@ public class Book implements Serializable {
     private Category category;
 
     @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "book_authors",
                joinColumns = @JoinColumn(name = "books_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "authors_id", referencedColumnName = "id"))

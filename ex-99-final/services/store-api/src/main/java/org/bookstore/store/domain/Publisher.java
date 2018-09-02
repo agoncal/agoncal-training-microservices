@@ -1,8 +1,5 @@
 package org.bookstore.store.domain;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.elasticsearch.annotations.Document;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,8 +11,6 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "str_publisher")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "publisher")
 public class Publisher implements Serializable {
 
     private static final long serialVersionUID = 1L;

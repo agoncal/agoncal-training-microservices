@@ -2,23 +2,29 @@ package org.bookstore.store.service;
 
 import org.bookstore.store.domain.Book;
 import org.bookstore.store.repository.BookRepository;
+import org.bookstore.store.repository.search.BookSearchRepository;
 import org.bookstore.store.service.dto.BookDTO;
 import org.bookstore.store.service.mapper.BookMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
-import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
-import static javax.transaction.Transactional.TxType.SUPPORTS;
+import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing Book.
  */
+@Service
 @Transactional
 public class BookService {
 
@@ -28,14 +34,16 @@ public class BookService {
 
     private final BookMapper bookMapper;
 
-    @Inject
-    public BookService(BookRepository bookRepository, BookMapper bookMapper) {
+    private final BookSearchRepository bookSearchRepository;
+
+    public BookService(BookRepository bookRepository, BookMapper bookMapper, BookSearchRepository bookSearchRepository) {
         this.bookRepository = bookRepository;
         this.bookMapper = bookMapper;
+        this.bookSearchRepository = bookSearchRepository;
     }
 
     /**
-     * Save a book
+     * Save a book.
      *
      * @param bookDTO the entity to save
      * @return the persisted entity
@@ -45,6 +53,7 @@ public class BookService {
         Book book = bookMapper.toEntity(bookDTO);
         book = bookRepository.save(book);
         BookDTO result = bookMapper.toDto(book);
+        bookSearchRepository.save(book);
         return result;
     }
 
@@ -53,10 +62,10 @@ public class BookService {
      *
      * @return the list of entities
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public List<BookDTO> findAll() {
         log.debug("Request to get all Books");
-        return bookRepository.findAll().stream()
+        return bookRepository.findAllWithEagerRelationships().stream()
             .map(bookMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
@@ -66,10 +75,10 @@ public class BookService {
      *
      * @return the list of entities
      */
-//    public Page<BookDTO> findAllWithEagerRelationships(Pageable pageable) {
-//        return bookRepository.findAllWithEagerRelationships(pageable).map(bookMapper::toDto);
-//    }
-
+    public Page<BookDTO> findAllWithEagerRelationships(Pageable pageable) {
+        return bookRepository.findAllWithEagerRelationships(pageable).map(bookMapper::toDto);
+    }
+    
 
     /**
      * Get one book by id.
@@ -77,10 +86,10 @@ public class BookService {
      * @param id the id of the entity
      * @return the entity
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public Optional<BookDTO> findOne(Long id) {
         log.debug("Request to get Book : {}", id);
-        return bookRepository.findById(id)
+        return bookRepository.findOneWithEagerRelationships(id)
             .map(bookMapper::toDto);
     }
 
@@ -92,6 +101,7 @@ public class BookService {
     public void delete(Long id) {
         log.debug("Request to delete Book : {}", id);
         bookRepository.deleteById(id);
+        bookSearchRepository.deleteById(id);
     }
 
     /**
@@ -100,16 +110,12 @@ public class BookService {
      * @param query the query of the search
      * @return the list of entities
      */
-    @Transactional(SUPPORTS)
+    @Transactional(readOnly = true)
     public List<BookDTO> search(String query) {
-        log.debug("Request to search for a page of Books for query {}", query);
-        return null;
-//
-//        return bookRepository.search(query)
-//            .map(bookMapper::toDto);
-
-//        return bookRepository.search(query).stream()
-//            .map(bookMapper::toDto)
-//            .collect(Collectors.toCollection(LinkedList::new));
+        log.debug("Request to search Books for query {}", query);
+        return StreamSupport
+            .stream(bookSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+            .map(bookMapper::toDto)
+            .collect(Collectors.toList());
     }
 }
