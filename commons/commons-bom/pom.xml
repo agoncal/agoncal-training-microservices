@@ -32,34 +32,21 @@
 
         <!-- Dependencies -->
         <version.javaee>8.0</version.javaee>
-        <version.slf4j>1.7.25</version.slf4j>
-        <version.swagger>1.5.19</version.swagger>
-        <version.faker>0.15</version.faker>
-        <version.guice>4.2.0</version.guice>
-        <version.consul>1.2.4</version.consul>
-        <version.mapstruct>1.2.0.Final</version.mapstruct>
+        <version.spring-boot>2.0.4.RELEASE</version.spring-boot>
         <version.zalando>0.21.0</version.zalando>
-        <version.liquibase>3.5.5</version.liquibase>
-        <!-- Databases -->
-        <version.h2>1.4.197</version.h2>
-        <version.postgresql>42.2.4</version.postgresql>
-        <!-- Netflix OSS -->
-        <version.archaius>0.7.6</version.archaius>
-        <version.governator>1.17.5</version.governator>
-        <version.feign>9.6.0</version.feign>
-        <version.feign-form>2.2.1</version.feign-form>
-        <version.hystrix>1.5.12</version.hystrix>
-        <!-- Test -->
-        <version.arquillian>1.4.0.Final</version.arquillian>
-        <version.shrinkwrap>2.2.6</version.shrinkwrap>
-        <version.junit>4.12</version.junit>
-        <version.resteasy>3.1.4.Final</version.resteasy>
-        <version.rest-assured>3.1.0</version.rest-assured>
-        <version.mockito>2.21.0</version.mockito>
+        <version.mapstruct>1.2.0.Final</version.mapstruct>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${version.spring-boot}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- Java EE -->
             <dependency>
                 <groupId>javax</groupId>
@@ -67,183 +54,21 @@
                 <version>${version.javaee}</version>
                 <scope>provided</scope>
             </dependency>
-
             <!-- Other -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-jdk14</artifactId>
-                <version>${version.slf4j}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-jaxrs</artifactId>
-                <version>${version.swagger}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${version.swagger}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.javafaker</groupId>
-                <artifactId>javafaker</artifactId>
-                <version>${version.faker}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.inject</groupId>
-                <artifactId>guice</artifactId>
-                <version>${version.guice}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.orbitz.consul</groupId>
-                <artifactId>consul-client</artifactId>
-                <version>${version.consul}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.geronimo.config</groupId>
-                <artifactId>geronimo-config-impl</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
-                <version>${version.mapstruct}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${version.mapstruct}</version>
-                <scope>provided</scope>
-            </dependency>
             <dependency>
                 <groupId>org.zalando</groupId>
                 <artifactId>problem</artifactId>
                 <version>${version.zalando}</version>
             </dependency>
             <dependency>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-core</artifactId>
-                <version>${version.liquibase}</version>
-            </dependency>
-
-            <!-- Databases -->
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${version.h2}</version>
+                <groupId>org.zalando</groupId>
+                <artifactId>problem-spring-web</artifactId>
+                <version>${version.zalando}</version>
             </dependency>
             <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${version.postgresql}</version>
-            </dependency>
-
-            <!-- NetflixOSS -->
-            <dependency>
-                <groupId>com.netflix.archaius</groupId>
-                <artifactId>archaius-core</artifactId>
-                <version>${version.archaius}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.netflix.governator</groupId>
-                <artifactId>governator</artifactId>
-                <version>${version.governator}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.netflix.governator</groupId>
-                <artifactId>governator-core</artifactId>
-                <version>${version.governator}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-core</artifactId>
-                <version>${version.feign}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-jackson</artifactId>
-                <version>${version.feign}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-slf4j</artifactId>
-                <version>${version.feign}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign.form</groupId>
-                <artifactId>feign-form</artifactId>
-                <version>${version.feign-form}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-hystrix</artifactId>
-                <version>${version.feign}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.netflix.hystrix</groupId>
-                <artifactId>hystrix-core</artifactId>
-                <version>${version.hystrix}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-ribbon</artifactId>
-                <version>${version.feign}</version>
-            </dependency>
-
-            <!-- Test -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-client</artifactId>
-                <version>${version.resteasy}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.rest-assured</groupId>
-                <artifactId>rest-assured</artifactId>
-                <version>${version.rest-assured}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>3.10.0</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jackson2-provider</artifactId>
-                <version>${version.resteasy}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>${version.mockito}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.arquillian.junit</groupId>
-                <artifactId>arquillian-junit-container</artifactId>
-                <version>${version.arquillian}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.shrinkwrap.resolver</groupId>
-                <artifactId>shrinkwrap-resolver-api-maven</artifactId>
-                <version>${version.shrinkwrap}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.shrinkwrap.resolver</groupId>
-                <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-                <version>${version.shrinkwrap}</version>
-                <scope>test</scope>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${version.mapstruct}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
