@@ -88,39 +88,31 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>com.github.kongchen</groupId>
-                <artifactId>swagger-maven-plugin</artifactId>
-                <configuration>
-                    <apiSources>
-                        <apiSource>
-                            <springmvc>false</springmvc>
-                            <locations>org.bookstore.store</locations>
-                            <schemes>http,https</schemes>
-                            <host>localhost:${listening.port}</host>
-                            <basePath>/book-api/api</basePath>
-                            <info>
-                                <title>Book API</title>
-                                <version>${project.version}</version>
-                                <description>Operations for Books.</description>
-                            </info>
-                            <swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>
-                            <outputFormats>json</outputFormats>
-                        </apiSource>
-                    </apiSources>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <skip>false</skip>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>com.github.kongchen</groupId>-->
+                <!--<artifactId>swagger-maven-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<apiSources>-->
+                        <!--<apiSource>-->
+                            <!--<springmvc>false</springmvc>-->
+                            <!--<locations>org.bookstore.store</locations>-->
+                            <!--<schemes>http,https</schemes>-->
+                            <!--<host>localhost:${listening.port}</host>-->
+                            <!--<basePath>/book-api/api</basePath>-->
+                            <!--<info>-->
+                                <!--<title>Book API</title>-->
+                                <!--<version>${project.version}</version>-->
+                                <!--<description>Operations for Books.</description>-->
+                            <!--</info>-->
+                            <!--<swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>-->
+                            <!--<outputFormats>json</outputFormats>-->
+                        <!--</apiSource>-->
+                    <!--</apiSources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${version.liquibase}</version>
                 <configuration>
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>

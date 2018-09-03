@@ -1,13 +1,11 @@
-package org.bookstore.inventory.web.rest;
-
-import org.bookstore.inventory.InventoryApp;
+package org.bookstore.inventory.rest;
 
 import org.bookstore.inventory.domain.Book;
 import org.bookstore.inventory.repository.BookRepository;
 import org.bookstore.inventory.service.BookService;
 import org.bookstore.inventory.service.dto.BookDTO;
 import org.bookstore.inventory.service.mapper.BookMapper;
-import org.bookstore.inventory.web.rest.errors.ExceptionTranslator;
+import org.bookstore.inventory.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +25,6 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 
-import static org.bookstore.inventory.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -40,7 +37,7 @@ import org.bookstore.inventory.domain.enumeration.Warehouse;
  * @see BookResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = InventoryApp.class)
+@SpringBootTest
 public class BookResourceIntTest {
 
     private static final String DEFAULT_ISBN = "AAAAAAAAAA";
@@ -64,7 +61,7 @@ public class BookResourceIntTest {
 
     @Autowired
     private BookMapper bookMapper;
-    
+
 
     @Autowired
     private BookService bookService;
@@ -92,7 +89,6 @@ public class BookResourceIntTest {
         this.restBookMockMvc = MockMvcBuilders.standaloneSetup(bookResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
 
@@ -354,40 +350,9 @@ public class BookResourceIntTest {
     }
 
     @Test
-    @Transactional
-    public void equalsVerifier() throws Exception {
-        TestUtil.equalsVerifier(Book.class);
-        Book book1 = new Book();
-        book1.setId(1L);
-        Book book2 = new Book();
-        book2.setId(book1.getId());
-        assertThat(book1).isEqualTo(book2);
-        book2.setId(2L);
-        assertThat(book1).isNotEqualTo(book2);
-        book1.setId(null);
-        assertThat(book1).isNotEqualTo(book2);
-    }
-
-    @Test
-    @Transactional
-    public void dtoEqualsVerifier() throws Exception {
-        TestUtil.equalsVerifier(BookDTO.class);
-        BookDTO bookDTO1 = new BookDTO();
-        bookDTO1.setId(1L);
-        BookDTO bookDTO2 = new BookDTO();
-        assertThat(bookDTO1).isNotEqualTo(bookDTO2);
-        bookDTO2.setId(bookDTO1.getId());
-        assertThat(bookDTO1).isEqualTo(bookDTO2);
-        bookDTO2.setId(2L);
-        assertThat(bookDTO1).isNotEqualTo(bookDTO2);
-        bookDTO1.setId(null);
-        assertThat(bookDTO1).isNotEqualTo(bookDTO2);
-    }
-
-    @Test
-    @Transactional
-    public void testEntityFromId() {
-        assertThat(bookMapper.fromId(42L).getId()).isEqualTo(42);
-        assertThat(bookMapper.fromId(null)).isNull();
+    public void checkHealth() throws Exception {
+        // Checks health
+        restBookMockMvc.perform(get("/api/health"))
+                .andExpect(status().isOk());
     }
 }
