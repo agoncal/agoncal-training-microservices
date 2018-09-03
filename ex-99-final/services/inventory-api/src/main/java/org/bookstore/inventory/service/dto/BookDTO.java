@@ -1,5 +1,7 @@
 package org.bookstore.inventory.service.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.bookstore.inventory.domain.enumeration.Warehouse;
 
 import javax.validation.constraints.Min;
@@ -11,25 +13,32 @@ import java.util.Objects;
 /**
  * A DTO for the Book entity.
  */
+@ApiModel( description = "Book" )
 public class BookDTO implements Serializable {
 
+    @ApiModelProperty(notes = "Technical identifier of the book. No two books can have the same id.", required = true)
     private Long id;
 
     @NotNull
     @Size(max = 15)
+    @ApiModelProperty(notes = "Unique ISBN number of the book.", required = true)
     private String isbn;
 
     @NotNull
     @Size(min = 2, max = 300)
+    @ApiModelProperty(notes = "Title of the book.", required = true)
     private String title;
 
     @NotNull
     @Min(value = 0)
+    @ApiModelProperty(notes = "Number of copies of the book left in the warehouse.", required = true)
     private Integer nbOfCopies;
 
     @NotNull
+    @ApiModelProperty(notes = "Warehouse where the books are stored.", required = true)
     private Warehouse warehouse;
 
+    @ApiModelProperty(notes = "Location in the warehouse where the books are stored.")
     private String location;
 
     public Long getId() {

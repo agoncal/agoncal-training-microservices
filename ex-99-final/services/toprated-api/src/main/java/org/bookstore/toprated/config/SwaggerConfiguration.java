@@ -23,7 +23,7 @@ public class SwaggerConfiguration {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.bookstore.store"))
+                .apis(RequestHandlerSelectors.basePackage("org.bookstore.toprated"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo());
