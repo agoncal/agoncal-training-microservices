@@ -1,7 +1,8 @@
 server:
     port: 8083
     address: localhost
-
+    servlet:
+        context-path: /store
 spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource

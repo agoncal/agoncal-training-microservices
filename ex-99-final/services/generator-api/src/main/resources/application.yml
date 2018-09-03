@@ -1,3 +1,5 @@
 server:
-    port: 8081
-    address: localhost
+  port: 8081
+  address: localhost
+  servlet:
+    context-path: /generator
