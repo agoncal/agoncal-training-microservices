@@ -1,0 +1,101 @@
+id;nb_of_copies;warehouse;location;isbn;title
+1001;5;WAREHOUSE_EAST;A1-7;1931182310;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook'
+1002;5;WAREHOUSE_EAST;A1-8;1931182311;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook Author: Robert McChesney Nov-2011'
+1003;5;WAREHOUSE_EAST;A1-9;1931182312;Advanced Java EE Development for Rational Application Developer 7.5: Developers' Guidebook 2nd , Seco edition by McChesney, Robert, Cole, Kameron, Raszka, Richard (2011) Paperback'
+1004;5;WAREHOUSE_EAST;A1-10;1514210959;Advanced Java EE Development with WildFly
+1005;5;WAREHOUSE_EAST;A1-11;8894038912;Advanced Jax-Ws Web Services
+1006;5;WAREHOUSE_EAST;A1-12;7176392999;Mike Meyers' Guide to Supporting Windows 7 for CompTIA A+ Certification (Exams 701 & 702) (All-in-One)'
+1007;5;WAREHOUSE_EAST;A1-13;1849512442;Apache Maven 3 Cookbook (Quick Answers to Common Problems)
+1008;5;WAREHOUSE_EAST;A1-14;2746062399;Apache Tomcat 7 - Guide d'administration du serveur Java EE 6 sous Windows et Linux'
+1009;5;WAREHOUSE_EAST;A1-15;2746086336;Apache Tomcat 8 - Guide d'administration du serveur Java EE 7 sous Windows et Linux'
+1010;5;WAREHOUSE_EAST;A1-16;1492201448;Apache TomEE Cookbook: Apache TomEE Administrator Cookbook
+1011;5;WAREHOUSE_EAST;A1-17;148885162X;Application Server 131 Success Secrets: 131 Most Asked Questions On Application Server - What You Need To Know
+1012;5;WAREHOUSE_EAST;A1-18;1782170561;Applied SOA Patterns on the Oracle Platform
+1013;5;WAREHOUSE_EAST;A1-19;3831141495;Architektur von Fuzzy-Informationssystemen (German Edition)
+1014;5;WAREHOUSE_EAST;A1-20;7180925222;Java: A Beginner's Guide, Sixth Edition'
+1015;5;WAREHOUSE_EAST;A1-21;7181791333;jQuery: A Beginner's Guide'
+1016;5;WAREHOUSE_EAST;A2-1;9921330411;Java: A Beginner's Tutorial, Updated for Java SE 8'
+1017;5;WAREHOUSE_EAST;A2-2;9781118017;Beginning Android Application Development
+1018;5;WAREHOUSE_EAST;A2-3;1430246936;Beginning EJB 3 (Java EE 7 Edition)
+1019;5;WAREHOUSE_EAST;A2-4;1430246937;Beginning EJB 3, Java EE, 7th 2nd (second) Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny published by Apress (2013)
+1020;5;WAREHOUSE_EAST;A2-5;1430246938;Beginning EJB 3, Java EE, 7th ed.
+1021;5;WAREHOUSE_EAST;A2-6;1430246928;Beginning EJB 3, Java EE, 7th Edition
+1022;5;WAREHOUSE_EAST;A2-7;1430246927;Beginning EJB 3, Java EE, 7th Edition 2nd edition by Wetherbee, Jonathan, Kodali, Raghu, Rathod, Chirag, Zadrozny (2013) Paperback
+1023;5;WAREHOUSE_EAST;A2-8;1430246926;Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan Published by Apress 2nd (second) edition (2013) Paperback
+1024;5;WAREHOUSE_EAST;A2-9;1430246925;Beginning EJB 3, Java EE, 7th Edition by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu, Zadrozny (2013) Paperback
+1025;5;WAREHOUSE_EAST;B4-1;1430246924;Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Jonathan Wetherbee (26-Apr-2013) Paperback
+1026;5;WAREHOUSE_EAST;B4-2;1430246923;Beginning Ejb 3: Java Ee 7 Edition (Beginning Apress) by Wetherbee, Jonathan, Rathod, Chirag, Kodali, Raghu (2013) Paperback
+1027;5;WAREHOUSE_EAST;B4-3;1430239093;Beginning Java 7 (Expert's Voice in Java)'
+1028;5;WAREHOUSE_EAST;B4-4;1590594703;Beginning Java EE 5: From Novice to Professional
+1029;4;WAREHOUSE_EAST;B4-5;1430219548;Beginning Java EE 6 Platform with GlassFish 3: From Novice to Professional (Expert's Voice in Java Technology)'
+1030;4;WAREHOUSE_EAST;B4-6;143022889X;Beginning Java EE 6 with GlassFish 3 (Expert's Voice in Java Technology)'
+1031;4;WAREHOUSE_EAST;B4-7;8132214080;Beginning Java EE 7
+1032;4;WAREHOUSE_EAST;B4-8;8132214081;Beginning Java EE 7 (Expert Voice in Java) 1st (first) by Goncalves, Antonio (2013) Paperback
+1033;4;WAREHOUSE_EAST;B4-9;8132214082;Beginning Java EE 7 (Expert Voice in Java) 1st edition by Goncalves, Antonio (2013) Paperback
+1034;4;WAREHOUSE_WEST;B4-10;8132214083;Beginning Java Ee 7 (Expert Voice in Java) by Goncalves, Antonio (2013) Paperback
+1035;4;WAREHOUSE_WEST;B4-11;8132214084;[(Beginning Java EE 7 )] [Author: Antonio Goncalves] [Jul-2013]
+1036;4;WAREHOUSE_WEST;B4-12;8132214085;Beginning Java EE 7 1st (first) Edition by Goncalves, Antonio published by Apress (2013)
+1037;4;WAREHOUSE_WEST;B4-13;8132214086;Beginning Java EE 7 by Goncalves, Antonio 1st (first) (2013) Paperback
+1038;4;WAREHOUSE_WEST;B4-14;8132214087;Beginning Java EE 7 by Goncalves, Antonio Published by Apress 1st (first) edition (2013) Paperback
+1039;4;WAREHOUSE_WEST;B4-15;1430246235;Beginning JSP, JSF and Tomcat: Java Web Development (Expert's Voice in Java)'
+1040;4;WAREHOUSE_WEST;B4-16;1118892925;Beginning Spring
+1041;4;WAREHOUSE_WEST;D6-1;1430219580;Pro (IBM) WebSphere Application Server 7 Internals (Books for Professionals by Professionals)
+1042;4;WAREHOUSE_WEST;D6-2;1590599217;Pro Spring 2.5 (Books for Professionals by Professionals)
+1043;4;WAREHOUSE_WEST;D6-3;1449345158;Building Modular Cloud Apps with OSGi
+1044;4;WAREHOUSE_WEST;D6-4;1743042078;Business Service Management: What you Need to Know For IT Operations Management
+1045;4;WAREHOUSE_WEST;D6-5;1743042077;By Arun Gupta Java EE 7 Essentials (1st Edition)
+1046;4;WAREHOUSE_WEST;D6-6;1743042076;By David R. Heffelfinger Java EE 7 with GlassFish 4 Application Server [Paperback]
+1047;4;WAREHOUSE_WEST;D6-7;1743042075;By Michal Cmil Java EE 7 Development with WildFly [Paperback]
+1048;4;WAREHOUSE_WEST;D6-8;1743042074;By Osama Oransa Java EE 7 Performance Tuning and Optimization [Paperback]
+1049;4;WAREHOUSE_WEST;D6-9;007174116X;C# 4.0 The Complete Reference
+1050;4;WAREHOUSE_WEST;D6-10;007174116Y;CDI Dependency Injection in Java EE 7 (German Edition)
+1051;4;WAREHOUSE_WEST;D6-11;7173880000;NetBeans IDE Programmer Certified Expert Exam Guide (Exam 310-045) (Certification Press)
+1052;4;WAREHOUSE_WEST;F9-1;7226088222;OCP Java SE 6 Programmer Practice Exams (Exam 310-065) (Certification Press)
+1053;3;WAREHOUSE_WEST;F9-2;7176565444;RHCSA/RHCE Red Hat Linux Certification Study Guide (Exams EX200 & EX300), 6th Edition (Certification Press)
+1054;3;WAREHOUSE_WEST;F9-3;7149003555;SCJA Sun Certified Java Associate Study Guide (Exam CX-310-019) (Certification Press)
+1055;3;WAREHOUSE_WEST;F9-4;1782165606;Clojure High Performance Programming
+1056;3;WAREHOUSE_WEST;F9-5;1447151062;Cloud Computing: Methods and Practical Approaches (Computer Communications and Networks)
+1057;3;WAREHOUSE_WEST;F9-6;2746068419;coffret Java EE 6 : développez et déployez une application sous Apache Tomcat 7
+1058;3;WAREHOUSE_WEST;F9-7;3642243517;ENTERprise Information Systems: International Conference, CENTERIS 2011, Vilamoura, Algarve, Portugal, October 5-7, 2011. Proceedings, Part III (Communications in Computer and Information Science)
+1059;3;WAREHOUSE_WEST;F9-8;7821414555;Enterprise Java 2, J2EE 1.3 Complete
+1060;3;WAREHOUSE_WEST;F9-9;7821414566;The Computer Shelf.(nonfiction books)(Book review): An article from: Internet Bookwatch
+1061;3;WAREHOUSE_WEST;F9-10;1449328296;Continuous Enterprise Development in Java
+1062;3;WAREHOUSE_WEST;F9-11;144933704X;Java Cookbook
+1063;3;WAREHOUSE_WEST;F9-12;3866442718;Coupled Model Transformations for QoS Enabled Component-Based Software Design
+1064;3;WAREHOUSE_WEST;F9-13;1932394796;iText in Action: Creating and Manipulating PDF
+1065;3;WAREHOUSE_WEST;F9-14;6156394533;Developing Enterprise Applications with Spring: An End-to-End Approach
+1066;3;WAREHOUSE_WEST;F9-15;1478289317;Developing Enterprise Applications with Spring: An End-to-End Approach
+1067;3;WAREHOUSE_WEST;F9-16;1782178120;Developing RESTful Services with JAX-RS 2.0, WebSockets, and JSON
+1068;3;WAREHOUSE_EUROPE;F9-17;1783288299;Developing RESTful Web Services with Jersey 2.0
+1069;3;WAREHOUSE_EUROPE;F9-18;3319054392;ECUMICT 2014: Proceedings of the European Conference on the Use of Modern Information and Communication Technologies, Gent, March 2014 (Lecture Notes in Electrical Engineering)
+1070;3;WAREHOUSE_EUROPE;T3-1;1847195601;EJB 3 Developer Guide: A Practical Guide for developers and architects to the Enterprise Java Beans Standard.
+1071;3;WAREHOUSE_EUROPE;T3-2;1935182994;EJB 3 in Action' 9'
+1072;3;WAREHOUSE_EUROPE;T3-3;1933988347;EJB 3 in Action' 9'
+1073;3;WAREHOUSE_EUROPE;T3-4;1783285451;Enterprise Application Development with Ext JS and Spring
+1074;3;WAREHOUSE_EUROPE;T3-5;3826616995;Enterprise JavaBeans 3.0 mit Eclipse und JBoss: Praxisbuch und Referenz
+1075;3;WAREHOUSE_EUROPE;T3-6;4705654544;Enterprise Software Architecture and Design: Entities, Services, and Resources
+1076;3;WAREHOUSE_EUROPE;Y1-1;1449356818;Enterprise Web Development: Building HTML5 Applications: From Desktop to Mobile
+1077;3;WAREHOUSE_EUROPE;Y1-2;3642327192;Organizations' Environmental Performance Indicators: Measuring, Monitoring, and Management (Environmental Science and Engineering)'
+1078;3;WAREHOUSE_EUROPE;Y1-3;1430244267;Java EE 7 Recipes: A Problem-Solution Approach (Expert's Voice in Java)'
+1079;3;WAREHOUSE_EUROPE;Y1-4;1430249269;Pro JPA 2 (Expert's Voice in Java)'
+1080;3;WAREHOUSE_EUROPE;Y1-5;1430250100;Pro JSF and HTML5: Building Rich Internet Components (Expert's Voice in Java)'
+1081;3;WAREHOUSE_EUROPE;Y1-6;2408097777;The Service-Oriented Media Enterprise: SOA, BPM, and Web Services in Professional Media Systems (Focal Press Media Technology Professional Series)
+1082;3;WAREHOUSE_EUROPE;Y1-7;383490452X;Gabler / MLP Berufs- und Karriere-Planer IT und e-business 2007/2008
+1083;3;WAREHOUSE_EUROPE;Y1-8;3834908037;Gabler | MLP Berufs- und Karriere-Planer IT und e-business 2009 | 2010: Für Studenten und Hochschulabsolventen (German Edition)
+1084;3;WAREHOUSE_EUROPE;Y1-9;1849686963;Getting Started with Oracle WebLogic Server 12c: Developer's Guide'
+1085;2;WAREHOUSE_EUROPE;Y1-10;1782164227;Getting Started with PhantomJS
+1086;2;WAREHOUSE_EUROPE;Y1-11;174244749X;GIAC Secure Software Programmer - Java certification Exam Certification Exam Preparation Course in a Book for Passing the GSSP - Java Exam - The How To Pass on Your First Try Certification Study Guide
+1087;2;WAREHOUSE_EUROPE;H6-1;1847199380;GlassFish Security
+1088;2;WAREHOUSE_EUROPE;H6-2;3319072927;HCI in Business: First International Conference, HCIB 2014, Held as Part of HCI International 2014, Heraklion, Crete, Greece, June 22-27, 2014, Proceedings (Lecture Notes in Computer Science)
+1089;2;WAREHOUSE_EUROPE;H6-3;1330670333;Modern Web Development with IBM WebSphere: Developing, Deploying, and Managing Mobile and Multi-Platform Apps (IBM Press)
+1090;2;WAREHOUSE_EUROPE;H6-4;1782169970;Infinispan Data Grid Platform Definitive Guide
+1091;2;WAREHOUSE_EUROPE;H6-5;3658077476;Informationsintegration in dynamischen Unternehmensnetzwerken: Architektur, Methode und Anwendung (German Edition)
+1092;2;WAREHOUSE_EUROPE;H6-6;1849698805;Instant JRebel
+1093;2;WAREHOUSE_EUROPE;H6-7;1849519900;Instant PrimeFaces Starter
+1094;2;WAREHOUSE_EUROPE;H6-8;2955021431;Integration Testing from the Trenches
+1095;2;WAREHOUSE_EUROPE;H6-9;1784396931;IntelliJ IDEA Essentials
+1096;2;WAREHOUSE_EUROPE;H6-10;1784396932;Introducing Java EE 7: A Look at What s New by Juneau, Josh (2013) Paperback
+1097;2;WAREHOUSE_EUROPE;H6-11;1430258489;Introducing Java EE 7: A Look at What s New
+1098;2;WAREHOUSE_EUROPE;H6-12;1430258488;Introducing Java EE 7: A Look at What s New (Paperback) - Common
+1099;2;WAREHOUSE_EUROPE;H6-13;1430258487;Introducing Java EE 7: A Look at What s New Author: Josh Juneau Jan-2014
+1100;2;WAREHOUSE_EUROPE;H6-14;1430258486;Introducing Java EE 7: A Look at What s New 1st (first) Edition by Juneau, Josh published by Apress (2013)
