@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see NumberGeneratorResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest//(classes = TopratedApp.class)
+@SpringBootTest
 public class NumberGeneratorResourceIntTest {
 
     private MockMvc restNumberGeneratorMockMvc;
@@ -47,8 +47,8 @@ public class NumberGeneratorResourceIntTest {
     @Test
     public void checkHealth() throws Exception {
 
-        // Get all the bookList
-        restNumberGeneratorMockMvc.perform(get("/api/health"))
+        // Checks Health
+        restNumberGeneratorMockMvc.perform(get("/api/numbers/health"))
                 .andExpect(status().isOk());
     }
 }

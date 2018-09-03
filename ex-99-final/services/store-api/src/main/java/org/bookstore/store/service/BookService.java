@@ -2,7 +2,6 @@ package org.bookstore.store.service;
 
 import org.bookstore.store.domain.Book;
 import org.bookstore.store.repository.BookRepository;
-import org.bookstore.store.repository.search.BookSearchRepository;
 import org.bookstore.store.service.dto.BookDTO;
 import org.bookstore.store.service.mapper.BookMapper;
 import org.slf4j.Logger;
@@ -16,10 +15,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
-import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing Book.
@@ -34,12 +29,9 @@ public class BookService {
 
     private final BookMapper bookMapper;
 
-    private final BookSearchRepository bookSearchRepository;
-
-    public BookService(BookRepository bookRepository, BookMapper bookMapper, BookSearchRepository bookSearchRepository) {
+    public BookService(BookRepository bookRepository, BookMapper bookMapper) {
         this.bookRepository = bookRepository;
         this.bookMapper = bookMapper;
-        this.bookSearchRepository = bookSearchRepository;
     }
 
     /**
@@ -53,7 +45,6 @@ public class BookService {
         Book book = bookMapper.toEntity(bookDTO);
         book = bookRepository.save(book);
         BookDTO result = bookMapper.toDto(book);
-        bookSearchRepository.save(book);
         return result;
     }
 
@@ -101,7 +92,6 @@ public class BookService {
     public void delete(Long id) {
         log.debug("Request to delete Book : {}", id);
         bookRepository.deleteById(id);
-        bookSearchRepository.deleteById(id);
     }
 
     /**
@@ -113,9 +103,11 @@ public class BookService {
     @Transactional(readOnly = true)
     public List<BookDTO> search(String query) {
         log.debug("Request to search Books for query {}", query);
-        return StreamSupport
-            .stream(bookSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .map(bookMapper::toDto)
-            .collect(Collectors.toList());
+//        TODO
+//        return StreamSupport
+//            .stream(bookSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+//            .map(bookMapper::toDto)
+//            .collect(Collectors.toList());
+        return null;
     }
 }

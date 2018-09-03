@@ -352,7 +352,7 @@ public class BookResourceIntTest {
     @Test
     public void checkHealth() throws Exception {
         // Checks health
-        restBookMockMvc.perform(get("/api/health"))
+        restBookMockMvc.perform(get("/api/books/health"))
                 .andExpect(status().isOk());
     }
 }

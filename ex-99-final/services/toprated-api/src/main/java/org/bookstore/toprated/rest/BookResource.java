@@ -107,7 +107,7 @@ public class BookResource {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/health")
+    @GetMapping("/books/health")
     public ResponseEntity health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();

@@ -1,0 +1,13 @@
+server:
+    port: 8083
+    address: localhost
+
+spring:
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5433/store
+        username: store
+        password:
+    jpa:
+        properties:
+            hibernate.temp.use_jdbc_metadata_defaults: false

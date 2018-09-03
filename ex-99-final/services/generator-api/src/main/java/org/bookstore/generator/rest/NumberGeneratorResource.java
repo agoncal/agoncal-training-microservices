@@ -29,7 +29,7 @@ public class NumberGeneratorResource {
                 .body(result);
     }
 
-    @GetMapping("/health")
+    @GetMapping("/numbers/health")
     public ResponseEntity health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();

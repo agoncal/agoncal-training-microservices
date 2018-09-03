@@ -1,22 +1,19 @@
 package org.bookstore.store.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import io.github.jhipster.web.util.ResponseUtil;
+import org.bookstore.store.rest.errors.BadRequestAlertException;
 import org.bookstore.store.service.BookService;
 import org.bookstore.store.service.dto.BookDTO;
-import org.bookstore.store.web.rest.errors.BadRequestAlertException;
-import org.bookstore.store.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * REST controller for managing Book.
@@ -26,8 +23,6 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
-
-    private static final String ENTITY_NAME = "book";
 
     private final BookService bookService;
 
@@ -43,15 +38,13 @@ public class BookResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/books")
-    @Timed
     public ResponseEntity<BookDTO> createBook(@Valid @RequestBody BookDTO bookDTO) throws URISyntaxException {
         log.debug("REST request to save Book : {}", bookDTO);
         if (bookDTO.getId() != null) {
-            throw new BadRequestAlertException("A new book cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new book cannot already have an ID");
         }
         BookDTO result = bookService.save(bookDTO);
         return ResponseEntity.created(new URI("/api/books/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -62,18 +55,15 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK) and with body the updated bookDTO,
      * or with status 400 (Bad Request) if the bookDTO is not valid,
      * or with status 500 (Internal Server Error) if the bookDTO couldn't be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/books")
-    @Timed
-    public ResponseEntity<BookDTO> updateBook(@Valid @RequestBody BookDTO bookDTO) throws URISyntaxException {
+    public ResponseEntity<BookDTO> updateBook(@Valid @RequestBody BookDTO bookDTO) {
         log.debug("REST request to update Book : {}", bookDTO);
         if (bookDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+            throw new BadRequestAlertException("Invalid id");
         }
         BookDTO result = bookService.save(bookDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, bookDTO.getId().toString()))
             .body(result);
     }
 
@@ -84,7 +74,6 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK) and the list of books in body
      */
     @GetMapping("/books")
-    @Timed
     public List<BookDTO> getAllBooks(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Books");
         return bookService.findAll();
@@ -97,11 +86,11 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK) and with body the bookDTO, or with status 404 (Not Found)
      */
     @GetMapping("/books/{id}")
-    @Timed
     public ResponseEntity<BookDTO> getBook(@PathVariable Long id) {
         log.debug("REST request to get Book : {}", id);
         Optional<BookDTO> bookDTO = bookService.findOne(id);
-        return ResponseUtil.wrapOrNotFound(bookDTO);
+        return bookDTO.map(response -> ResponseEntity.ok().body(response))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
@@ -111,25 +100,28 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/books/{id}")
-    @Timed
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         log.debug("REST request to delete Book : {}", id);
         bookService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.ok().build();
     }
 
     /**
-     * SEARCH  /_search/books?query=:query : search for the book corresponding
+     * SEARCH  /books/search?query=:query : search for the book corresponding
      * to the query.
      *
      * @param query the query of the book search
      * @return the result of the search
      */
-    @GetMapping("/_search/books")
-    @Timed
+    @GetMapping("/books/search")
     public List<BookDTO> searchBooks(@RequestParam String query) {
         log.debug("REST request to search Books for query {}", query);
         return bookService.search(query);
     }
 
+    @GetMapping("/books/health")
+    public ResponseEntity health() {
+        log.info("Alive and Kicking !!!");
+        return ResponseEntity.ok().build();
+    }
 }
