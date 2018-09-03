@@ -1,5 +1,7 @@
 package org.bookstore.generator.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api")
+@Api(description = "Generating all sorts of book numbers.")
 public class NumberGeneratorResource {
 
     private final Logger log = LoggerFactory.getLogger(NumberGeneratorResource.class);
@@ -22,6 +25,7 @@ public class NumberGeneratorResource {
      * @return the ResponseEntity with status 200 (OK) and the generated number
      */
     @GetMapping("/numbers")
+    @ApiOperation(value = "Generates a book number.", response = String.class)
     public ResponseEntity<String> generateNumber() {
         log.debug("REST request to generate a number");
         String result = "BK-" + Math.random();
@@ -30,6 +34,7 @@ public class NumberGeneratorResource {
     }
 
     @GetMapping("/numbers/health")
+    @ApiOperation(value = "Checks the health of this REST endpoint")
     public ResponseEntity health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();
