@@ -1,4 +1,4 @@
-package org.bookstore.inventory.rest;
+package org.bookstore.store.rest;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
