@@ -42,7 +42,8 @@ public class BookService {
         log.debug("Request to save Book : {}", bookDTO);
         Book book = bookMapper.toEntity(bookDTO);
         book = bookRepository.save(book);
-        return bookMapper.toDto(book);
+        BookDTO result = bookMapper.toDto(book);
+        return result;
     }
 
     /**

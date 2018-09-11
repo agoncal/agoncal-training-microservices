@@ -1,5 +1,7 @@
 package org.bookstore.store.service.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.bookstore.store.domain.enumeration.Language;
 
 import javax.validation.constraints.NotNull;
@@ -11,23 +13,30 @@ import java.util.Objects;
 /**
  * A DTO for the Author entity.
  */
+@ApiModel( description = "Book Author" )
 public class AuthorDTO implements Serializable {
 
+    @ApiModelProperty(notes = "Technical identifier of the author. No two authors can have the same id.", required = true)
     private Long id;
 
     @NotNull
     @Size(min = 2, max = 50)
+    @ApiModelProperty(notes = "Author's first name.", required = true)
     private String firstName;
 
     @NotNull
     @Size(min = 2, max = 50)
+    @ApiModelProperty(notes = "Author's last name.", required = true)
     private String lastName;
 
     @Size(max = 5000)
+    @ApiModelProperty(notes = "Author's biographie.")
     private String bio;
 
+    @ApiModelProperty(notes = "Author's date of birth.")
     private LocalDate dateOfBirth;
 
+    @ApiModelProperty(notes = "Author's preferred language to write books.")
     private Language preferredLanguage;
 
     public Long getId() {

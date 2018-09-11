@@ -1,5 +1,7 @@
 package org.bookstore.inventory.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.bookstore.inventory.rest.errors.BadRequestAlertException;
 import org.bookstore.inventory.service.BookService;
 import org.bookstore.inventory.service.dto.BookDTO;
@@ -20,6 +22,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
+@Api(description = "Operations on books.")
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
@@ -106,6 +109,7 @@ public class BookResource {
     }
 
     @GetMapping("/books/health")
+    @ApiOperation(value = "Checks the health of this REST endpoint")
     public ResponseEntity health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();

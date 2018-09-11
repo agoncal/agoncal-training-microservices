@@ -1,5 +1,7 @@
 package org.bookstore.store.service.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.bookstore.store.domain.enumeration.Language;
 
 import javax.validation.constraints.DecimalMin;
@@ -16,43 +18,58 @@ import java.util.Set;
 /**
  * A DTO for the Book entity.
  */
+@ApiModel( description = "Book" )
 public class BookDTO implements Serializable {
 
+    @ApiModelProperty(notes = "Technical identifier of the book. No two books can have the same id.", required = true)
     private Long id;
 
     @NotNull
     @Size(max = 15)
+    @ApiModelProperty(notes = "Unique ISBN number of the book.", required = true)
     private String isbn;
 
     @NotNull
     @Size(min = 2, max = 300)
+    @ApiModelProperty(notes = "Title of the book.", required = true)
     private String title;
 
     @Size(max = 10000)
+    @ApiModelProperty(notes = "Description, abstract, comments of the book.")
     private String description;
 
     @DecimalMin(value = "1")
     private BigDecimal price;
 
     @Min(value = 1)
+    @ApiModelProperty(notes = "Paper books have a number of pages.")
     private Integer nbOfPages;
 
+    @ApiModelProperty(notes = "Date in which the book got published.")
     private LocalDate publication;
 
+    @ApiModelProperty(notes = "Language in which the book got written.")
     private Language language;
 
+    @ApiModelProperty(notes = "Small-size format image of the book cover.")
     private String smallImageURL;
 
+    @ApiModelProperty(notes = "Medium-size format image of the book cover.")
     private String mediumImageURL;
 
+    @ApiModelProperty(notes = "Technical identifier of the publisher.")
     private Long publisherId;
 
+    @ApiModelProperty(notes = "Name of the publisher.")
     private String publisherName;
 
+    @ApiModelProperty(notes = "Technical identifier of the book category.")
     private Long categoryId;
 
+    @ApiModelProperty(notes = "Name of the category.")
     private String categoryName;
 
+    @ApiModelProperty(notes = "Authors of the book.")
     private Set<AuthorDTO> authors = new HashSet<>();
 
     public Long getId() {

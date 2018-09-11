@@ -26,33 +26,53 @@ Then go to the web interface at http://localhost:8500
 
 ## Microservices
 
+All microservices can get built and executed with the following commands:
 
-### Generator API
-
-Build 
+To build: 
 
 ```
 $ mvn clean install
 ```
 
-Execute 
+To execute you can either use the Spring Boot maven plugin or just execute the Jar:
 
 ```
-$ java -jar services/generator-api/target/generator-api-99-thorntail.jar
+$ mvn spring-boot:run
 ```
 
-Then go to [http://localhost:8084/generator-api/api/numbers/book]()
+```
+$ mvn clean install
+$ java -jar services/generator-api/target/xxx-api-xx-thorntail.jar
+```
+
+To build a Docker image out of a microservice
 
 ```
 $ mvn docker:build
 ```
+
+### Generator API
+
+The Generator API generates book numbers. Check the following URLs:
+
+* API at [http://localhost:8081/generator/api/numbers]()
+* Swagger UI at [http://localhost:8081/generator/swagger-ui.html]()
+* Swagger contract at [http://localhost:8081/generator/v2/api-docs]()
+
+### Inventory API
+
+The Inventory API manages the number of books available in the warehouses. Check the following URLs:
+
+* API at [http://localhost:8082/inventory/api/books]()
+* Swagger UI at [http://localhost:8082/inventory/swagger-ui.html]()
+* Swagger contract at [http://localhost:8082/inventory/v2/api-docs]()
 
 ## Databases
 
 Drop database
 
 ```
-$ mvn sql:execute test
+$ mvn liquibase:dropAll
 ```
 
 Liquibase
