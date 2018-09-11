@@ -24,7 +24,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
-@Api(description = "Operations on books.")
+@Api(description = "Operations on books in the inventory.")
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
