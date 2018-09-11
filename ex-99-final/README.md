@@ -67,6 +67,14 @@ The Inventory API manages the number of books available in the warehouses. Check
 * Swagger UI at [http://localhost:8082/inventory/swagger-ui.html]()
 * Swagger contract at [http://localhost:8082/inventory/v2/api-docs]()
 
+### Top Rated API
+
+The Top Rated API manages the top rated books. Check the following URLs:
+
+* API at [http://localhost:8084/toprated/api/books]()
+* Swagger UI at [http://localhost:8084/toprated/swagger-ui.html]()
+* Swagger contract at [http://localhost:8084/toprated/v2/api-docs]()
+
 ## Databases
 
 Drop database

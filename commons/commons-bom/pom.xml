@@ -36,6 +36,7 @@
         <version.zalando>0.21.0</version.zalando>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
         <version.springfox>2.9.2</version.springfox>
+        <version.swagger>1.5.21</version.swagger>
     </properties>
 
     <dependencyManagement>
@@ -98,7 +99,25 @@
                         <groupId>org.javassist</groupId>
                         <artifactId>javassist</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${version.swagger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${version.swagger}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
