@@ -124,7 +124,7 @@ public class BookResource {
 
     @GetMapping("/books/health")
     @ApiOperation(value = "Checks the health of this REST endpoint")
-    public ResponseEntity health() {
+    public ResponseEntity<Void> health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();
     }

@@ -2,12 +2,14 @@ package org.bookstore.inventory.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.bookstore.inventory.rest.errors.BadRequestAlertException;
 import org.bookstore.inventory.service.BookService;
 import org.bookstore.inventory.service.dto.BookDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,15 +42,16 @@ public class BookResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new bookDTO, or with status 400 (Bad Request) if the book has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PostMapping("/books")
-    public ResponseEntity<BookDTO> createBook(@Valid @RequestBody BookDTO bookDTO) throws URISyntaxException {
+    @PostMapping(path = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Creates a new book entry in the inventory.")
+    public ResponseEntity<BookDTO> createBook(@Valid @RequestBody @ApiParam(value = "Book", required = true) BookDTO bookDTO) throws URISyntaxException {
         log.debug("REST request to save Book : {}", bookDTO);
         if (bookDTO.getId() != null) {
             throw new BadRequestAlertException("A new book cannot already have an ID");
         }
         BookDTO result = bookService.save(bookDTO);
         return ResponseEntity.created(new URI("/api/books/" + result.getId()))
-            .body(result);
+                .body(result);
     }
 
     /**
@@ -59,15 +62,16 @@ public class BookResource {
      * or with status 400 (Bad Request) if the bookDTO is not valid,
      * or with status 500 (Internal Server Error) if the bookDTO couldn't be updated
      */
-    @PutMapping("/books")
-    public ResponseEntity<BookDTO> updateBook(@Valid @RequestBody BookDTO bookDTO) {
+    @PutMapping(path = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Updates a book entry in the inventory.")
+    public ResponseEntity<BookDTO> updateBook(@Valid @RequestBody @ApiParam(value = "Book", required = true) BookDTO bookDTO) {
         log.debug("REST request to update Book : {}", bookDTO);
         if (bookDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id");
         }
         BookDTO result = bookService.save(bookDTO);
         return ResponseEntity.ok()
-            .body(result);
+                .body(result);
     }
 
     /**
@@ -75,7 +79,8 @@ public class BookResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of books in body
      */
-    @GetMapping("/books")
+    @GetMapping(path = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns all the book entries from the inventory.")
     public List<BookDTO> getAllBooks() {
         log.debug("REST request to get all Books");
         return bookService.findAll();
@@ -87,8 +92,9 @@ public class BookResource {
      * @param id the id of the bookDTO to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the bookDTO, or with status 404 (Not Found)
      */
-    @GetMapping("/books/{id}")
-    public ResponseEntity<BookDTO> getBook(@PathVariable Long id) {
+    @GetMapping(path = "/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns a book entry from the inventory giving its identifier.")
+    public ResponseEntity<BookDTO> getBook(@PathVariable @ApiParam(value = "Book identifier", required = true) Long id) {
         log.debug("REST request to get Book : {}", id);
         Optional<BookDTO> bookDTO = bookService.findOne(id);
         return bookDTO.map(response -> ResponseEntity.ok().body(response))
@@ -102,7 +108,8 @@ public class BookResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/books/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    @ApiOperation(value = "Deletes a book entry from the inventory giving its identifier.")
+    public ResponseEntity<Void> deleteBook(@PathVariable @ApiParam(value = "Book identifier", required = true) Long id) {
         log.debug("REST request to delete Book : {}", id);
         bookService.delete(id);
         return ResponseEntity.ok().build();
@@ -110,7 +117,7 @@ public class BookResource {
 
     @GetMapping("/books/health")
     @ApiOperation(value = "Checks the health of this REST endpoint")
-    public ResponseEntity health() {
+    public ResponseEntity<Void> health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();
     }

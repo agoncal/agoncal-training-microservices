@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,8 @@ public class NumberGeneratorResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the generated number
      */
-    @GetMapping("/numbers")
-    @ApiOperation(value = "Generates a book number.", response = String.class)
+    @GetMapping(path = "/numbers", produces = MediaType.TEXT_PLAIN_VALUE)
+    @ApiOperation(value = "Generates a book number.")
     public ResponseEntity<String> generateNumber() {
         log.debug("REST request to generate a number");
         String result = "BK-" + Math.random();
@@ -35,7 +36,7 @@ public class NumberGeneratorResource {
 
     @GetMapping("/numbers/health")
     @ApiOperation(value = "Checks the health of this REST endpoint")
-    public ResponseEntity health() {
+    public ResponseEntity<Void> health() {
         log.info("Alive and Kicking !!!");
         return ResponseEntity.ok().build();
     }
