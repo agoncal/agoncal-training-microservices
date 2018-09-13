@@ -2,12 +2,14 @@ package org.bookstore.store.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.bookstore.store.rest.errors.BadRequestAlertException;
 import org.bookstore.store.service.AuthorService;
 import org.bookstore.store.service.dto.AuthorDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,8 +42,9 @@ public class AuthorResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new authorDTO, or with status 400 (Bad Request) if the author has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PostMapping("/authors")
-    public ResponseEntity<AuthorDTO> createAuthor(@Valid @RequestBody AuthorDTO authorDTO) throws URISyntaxException {
+    @PostMapping(path ="/authors", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Creates a new author.")
+    public ResponseEntity<AuthorDTO> createAuthor(@Valid @RequestBody @ApiParam(value = "Author", required = true) AuthorDTO authorDTO) throws URISyntaxException {
         log.debug("REST request to save Author : {}", authorDTO);
         if (authorDTO.getId() != null) {
             throw new BadRequestAlertException("A new author cannot already have an ID");
@@ -59,8 +62,9 @@ public class AuthorResource {
      * or with status 400 (Bad Request) if the authorDTO is not valid,
      * or with status 500 (Internal Server Error) if the authorDTO couldn't be updated
      */
-    @PutMapping("/authors")
-    public ResponseEntity<AuthorDTO> updateAuthor(@Valid @RequestBody AuthorDTO authorDTO) {
+    @PutMapping(path = "/authors", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Updates an author.")
+    public ResponseEntity<AuthorDTO> updateAuthor(@Valid @RequestBody @ApiParam(value = "Author", required = true) AuthorDTO authorDTO) {
         log.debug("REST request to update Author : {}", authorDTO);
         if (authorDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id");
@@ -75,7 +79,8 @@ public class AuthorResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of authors in body
      */
-    @GetMapping("/authors")
+    @GetMapping(path = "/authors", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns all the authors.")
     public List<AuthorDTO> getAllAuthors() {
         log.debug("REST request to get all Authors");
         return authorService.findAll();
@@ -87,8 +92,9 @@ public class AuthorResource {
      * @param id the id of the authorDTO to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the authorDTO, or with status 404 (Not Found)
      */
-    @GetMapping("/authors/{id}")
-    public ResponseEntity<AuthorDTO> getAuthor(@PathVariable Long id) {
+    @GetMapping(path = "/authors/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns an author giving its identifier.")
+    public ResponseEntity<AuthorDTO> getAuthor(@PathVariable @ApiParam(value = "Author identifier", required = true) Long id) {
         log.debug("REST request to get Author : {}", id);
         Optional<AuthorDTO> authorDTO = authorService.findOne(id);
         return authorDTO.map(response -> ResponseEntity.ok().body(response))
@@ -102,7 +108,8 @@ public class AuthorResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/authors/{id}")
-    public ResponseEntity<Void> deleteAuthor(@PathVariable Long id) {
+    @ApiOperation(value = "Deletes an author giving its identifier.")
+    public ResponseEntity<Void> deleteAuthor(@PathVariable @ApiParam(value = "Author identifier", required = true) Long id) {
         log.debug("REST request to delete Author : {}", id);
         authorService.delete(id);
         return ResponseEntity.ok().build();

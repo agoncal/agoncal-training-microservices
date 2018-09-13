@@ -2,12 +2,14 @@ package org.bookstore.store.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.bookstore.store.rest.errors.BadRequestAlertException;
 import org.bookstore.store.service.CategoryService;
 import org.bookstore.store.service.dto.CategoryDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,8 +42,9 @@ public class CategoryResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new categoryDTO, or with status 400 (Bad Request) if the category has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PostMapping("/categories")
-    public ResponseEntity<CategoryDTO> createCategory(@Valid @RequestBody CategoryDTO categoryDTO) throws URISyntaxException {
+    @PostMapping(path = "/categories", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Creates a new category.")
+    public ResponseEntity<CategoryDTO> createCategory(@Valid @RequestBody @ApiParam(value = "Category", required = true) CategoryDTO categoryDTO) throws URISyntaxException {
         log.debug("REST request to save Category : {}", categoryDTO);
         if (categoryDTO.getId() != null) {
             throw new BadRequestAlertException("A new category cannot already have an ID");
@@ -59,8 +62,9 @@ public class CategoryResource {
      * or with status 400 (Bad Request) if the categoryDTO is not valid,
      * or with status 500 (Internal Server Error) if the categoryDTO couldn't be updated
      */
-    @PutMapping("/categories")
-    public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody CategoryDTO categoryDTO) {
+    @PutMapping(path = "/categories", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Updates a category.")
+    public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody @ApiParam(value = "Category", required = true) CategoryDTO categoryDTO) {
         log.debug("REST request to update Category : {}", categoryDTO);
         if (categoryDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id");
@@ -75,7 +79,8 @@ public class CategoryResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of categories in body
      */
-    @GetMapping("/categories")
+    @GetMapping(path = "/categories", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns all the categories.")
     public List<CategoryDTO> getAllCategories() {
         log.debug("REST request to get all Categories");
         return categoryService.findAll();
@@ -87,8 +92,9 @@ public class CategoryResource {
      * @param id the id of the categoryDTO to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the categoryDTO, or with status 404 (Not Found)
      */
-    @GetMapping("/categories/{id}")
-    public ResponseEntity<CategoryDTO> getCategory(@PathVariable Long id) {
+    @GetMapping(path = "/categories/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Returns a category giving its identifier.")
+    public ResponseEntity<CategoryDTO> getCategory(@PathVariable @ApiParam(value = "Category identifier", required = true) Long id) {
         log.debug("REST request to get Category : {}", id);
         Optional<CategoryDTO> categoryDTO = categoryService.findOne(id);
         return categoryDTO.map(response -> ResponseEntity.ok().body(response))
@@ -102,7 +108,8 @@ public class CategoryResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/categories/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+    @ApiOperation(value = "Deletes a category giving its identifier.")
+    public ResponseEntity<Void> deleteCategory(@PathVariable @ApiParam(value = "Category identifier", required = true) Long id) {
         log.debug("REST request to delete Category : {}", id);
         categoryService.delete(id);
         return ResponseEntity.ok().build();

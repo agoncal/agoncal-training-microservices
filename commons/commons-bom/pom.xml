@@ -32,7 +32,7 @@
 
         <!-- Dependencies -->
         <version.javaee>8.0</version.javaee>
-        <version.spring-boot>2.0.4.RELEASE</version.spring-boot>
+        <version.spring-boot>2.0.5.RELEASE</version.spring-boot>
         <version.zalando>0.21.0</version.zalando>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
         <version.springfox>2.9.2</version.springfox>
