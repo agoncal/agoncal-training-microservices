@@ -147,6 +147,53 @@
                     <logging>debug</logging>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/generator-api-docs.json</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <configOptions>
+                                <!--<sourceFolder>${project.basedir}/target/generated-sources/swagger/org/bookstore/store/client</sourceFolder>-->
+                                <generateApiTests>false</generateApiTests>
+                                <generateSupportingFiles>false</generateSupportingFiles>
+                                <generateSupportingFiles>true</generateSupportingFiles>
+                                <modelPackage>org.bookstore.store.client.model</modelPackage>
+                                <apiPackage>org.bookstore.store.client.api</apiPackage>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>io.swagger</groupId>-->
+                <!--<artifactId>swagger-codegen-maven-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<inputSpec>${project.basedir}/src/main/resources/generator-api-docs.json</inputSpec>-->
+                            <!--<language>spring</language>-->
+                            <!--<configOptions>-->
+                                <!--&lt;!&ndash;<sourceFolder>${project.basedir}/target/generated-sources/swagger/org/bookstore/store/client</sourceFolder>&ndash;&gt;-->
+                                <!--<generateApiTests>false</generateApiTests>-->
+                                <!--<generateSupportingFiles>false</generateSupportingFiles>-->
+                                <!--<generateSupportingFiles>true</generateSupportingFiles>-->
+                                <!--<modelPackage>org.bookstore.store.client.model</modelPackage>-->
+                                <!--<apiPackage>org.bookstore.store.client.api</apiPackage>-->
+                            <!--</configOptions>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>

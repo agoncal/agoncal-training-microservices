@@ -52,9 +52,10 @@
         <version.war.plugin>3.2.2</version.war.plugin>
 
         <!-- External Maven Plugins -->
-        <version.spring-boot>2.0.4.RELEASE</version.spring-boot>
         <version.liquibase>3.5.5</version.liquibase>
         <version.mapstruct>1.2.0.Final</version.mapstruct>
+        <version.spring-boot>2.0.4.RELEASE</version.spring-boot>
+        <version.openapi-codegen>3.2.3</version.openapi-codegen>
 
         <!-- Databases -->
         <version.postgresql>42.2.4</version.postgresql>
@@ -300,6 +301,11 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>${version.openapi-codegen}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
