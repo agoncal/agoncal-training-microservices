@@ -173,7 +173,7 @@ $ ng build generator
 Use Open API Codegen to generate the Client stubs
 
 ```
-$ openapi-generator generate -i http://localhost:8081/generator/v2/api-docs -g typescript-angular -o /tmp/test/
+$ openapi-generator generate -i http://localhost:8081/generator/v2/api-docs -g typescript-angular  -o ./projects/generator/src/lib/shared
 ```
 
 ### Store Library
