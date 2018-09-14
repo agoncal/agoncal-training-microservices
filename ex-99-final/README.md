@@ -165,12 +165,6 @@ The Store library has several components
 
 ```
 $ ng generate component Home --project store --inline-style true --spec false
-$ ng generate component BookList --project store --inline-style true --spec false
-$ ng generate component BookDetail --project store --inline-style true --spec false
-$ ng generate component CdList --project store --inline-style true --spec false
-$ ng generate component CdDetail --project store --inline-style true --spec false
-$ ng generate component DvdList --project store --inline-style true --spec false
-$ ng generate component DvdDetail --project store --inline-style true --spec false
 ```
 
 Build the library so you can use it
@@ -192,7 +186,6 @@ The Inventory library has several components
 
 ```
 $ ng generate component Home --project inventory --inline-style true --spec false
-$ ng generate component ItemList --project inventory --inline-style true --spec false
 ```
 
 Build the library so you can use it
@@ -214,9 +207,27 @@ The Generator library has several components
 
 ```
 $ ng generate component Home --project generator --inline-style true --spec false
-$ ng generate component BookNumber --project generator --inline-style true --spec false
-$ ng generate component CdNumber --project generator --inline-style true --spec false
-$ ng generate component DvdNumber --project generator --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build generator
+```
+
+### Top Rated Library
+
+#### NG CLI Commands
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library toprated --prefix top
+```
+
+The Generator library has several components
+
+```
+$ ng generate component Home --project toprated --inline-style true --spec false
 ```
 
 Build the library so you can use it
