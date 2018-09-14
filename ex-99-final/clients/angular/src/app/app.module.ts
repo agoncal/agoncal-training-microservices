@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { GeneratorModule } from 'generator';
+import { InventoryModule } from 'inventory';
+import { StoreModule } from 'store';
+import { TopratedModule } from 'toprated';
 
 @NgModule({
   declarations: [
@@ -14,6 +18,10 @@ import { AboutComponent } from './about/about.component';
     AboutComponent
   ],
   imports: [
+    GeneratorModule,
+    InventoryModule,
+    StoreModule,
+    TopratedModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot()
