@@ -91,3 +91,135 @@ $ mvn liquibase:update
 ```
 
 ## Clients
+
+### Angular
+
+Here are the commands and the steps that were used to create this project 
+
+### Main application BookStore
+
+#### NG CLI Commands
+
+```
+# Create a new Angular project with Angular CLI
+$ ng new bookstore --directory bookstore --routing true --skip-tests true --inline-style true
+
+# Add the needed dependencies
+$ yarn add @fortawesome/angular-fontawesome@0.1.1
+$ yarn add @fortawesome/fontawesome-svg-core@1.2.2
+$ yarn add @fortawesome/free-solid-svg-icons@5.2.0
+$ yarn add bootstrap@4.1.3
+$ yarn add @ng-bootstrap/ng-bootstrap@3.0.0
+```
+
+The main application has two components
+
+```
+$ ng generate component home --inline-style true --spec false
+$ ng generate component about --inline-style true --spec false
+```
+
+#### Configuration
+
+In `angular.json` file add :
+
+```
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@fortawesome/fontawesome-free/css/all.css",
+  "src/jumbotron.css",
+  {
+    "input": "src/styles.css"
+  }
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.slim.js",
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+]
+```
+
+In `app.module.ts` add NG Bootstrap
+
+```
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+  imports: [
+    NgbModule.forRoot()
+  ],
+```
+
+
+### Store Library
+
+#### NG CLI Commands
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library store --prefix str
+$ ng generate component store --project store --inline-style true
+```
+
+The Store library has several components
+
+```
+$ ng generate component Home --project store --inline-style true --spec false
+$ ng generate component BookList --project store --inline-style true --spec false
+$ ng generate component BookDetail --project store --inline-style true --spec false
+$ ng generate component CdList --project store --inline-style true --spec false
+$ ng generate component CdDetail --project store --inline-style true --spec false
+$ ng generate component DvdList --project store --inline-style true --spec false
+$ ng generate component DvdDetail --project store --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build store
+```
+
+### Inventory Library
+
+#### NG CLI Commands
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library inventory --prefix inv
+```
+
+The Inventory library has several components
+
+```
+$ ng generate component Home --project inventory --inline-style true --spec false
+$ ng generate component ItemList --project inventory --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build inventory
+```
+
+### Number Generator Library
+
+#### NG CLI Commands
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library generator --prefix gen
+```
+
+The Generator library has several components
+
+```
+$ ng generate component Home --project generator --inline-style true --spec false
+$ ng generate component BookNumber --project generator --inline-style true --spec false
+$ ng generate component CdNumber --project generator --inline-style true --spec false
+$ ng generate component DvdNumber --project generator --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build generator
+```
+
