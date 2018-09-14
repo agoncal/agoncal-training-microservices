@@ -150,10 +150,33 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
 ```
 
+### Number Generator Library
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library generator --prefix gen
+```
+
+The Generator library has several components
+
+```
+$ ng generate component Home --project generator --inline-style true --spec false
+$ ng generate component BookNumber --project generator --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build generator
+```
+
+Use Open API Codegen to generate the Client stubs
+
+```
+$ openapi-generator generate -i http://localhost:8081/generator/v2/api-docs -g typescript-angular -o /tmp/test/
+```
 
 ### Store Library
-
-#### NG CLI Commands
 
 ```
 # Create a new Angular library with Angular CLI
@@ -175,8 +198,6 @@ $ ng build store
 
 ### Inventory Library
 
-#### NG CLI Commands
-
 ```
 # Create a new Angular library with Angular CLI
 $ ng generate library inventory --prefix inv
@@ -194,30 +215,7 @@ Build the library so you can use it
 $ ng build inventory
 ```
 
-### Number Generator Library
-
-#### NG CLI Commands
-
-```
-# Create a new Angular library with Angular CLI
-$ ng generate library generator --prefix gen
-```
-
-The Generator library has several components
-
-```
-$ ng generate component Home --project generator --inline-style true --spec false
-```
-
-Build the library so you can use it
-
-```
-$ ng build generator
-```
-
 ### Top Rated Library
-
-#### NG CLI Commands
 
 ```
 # Create a new Angular library with Angular CLI
