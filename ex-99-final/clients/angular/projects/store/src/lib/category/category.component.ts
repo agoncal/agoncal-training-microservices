@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'top-toprated',
-  templateUrl: './toprated.component.html',
+  selector: 'str-category',
+  templateUrl: './category.component.html',
   styles: []
 })
-export class TopratedComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   constructor() { }
 

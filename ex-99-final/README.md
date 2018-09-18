@@ -176,6 +176,26 @@ Use Open API Codegen to generate the Client stubs
 $ openapi-generator generate -i http://localhost:8081/generator/v2/api-docs -g typescript-angular  -o ./projects/generator/src/lib/shared
 ```
 
+### Inventory Library
+
+```
+# Create a new Angular library with Angular CLI
+$ ng generate library inventory --prefix inv
+```
+
+The Inventory library has several components
+
+```
+$ ng generate component Home --project inventory --inline-style true --spec false
+$ ng generate component Book --project inventory --inline-style true --spec false
+```
+
+Build the library so you can use it
+
+```
+$ ng build inventory
+```
+
 ### Store Library
 
 ```
@@ -188,31 +208,16 @@ The Store library has several components
 
 ```
 $ ng generate component Home --project store --inline-style true --spec false
+$ ng generate component Author --project store --inline-style true --spec false
+$ ng generate component Book --project store --inline-style true --spec false
+$ ng generate component Category --project store --inline-style true --spec false
+$ ng generate component Publisher --project store --inline-style true --spec false
 ```
 
 Build the library so you can use it
 
 ```
 $ ng build store
-```
-
-### Inventory Library
-
-```
-# Create a new Angular library with Angular CLI
-$ ng generate library inventory --prefix inv
-```
-
-The Inventory library has several components
-
-```
-$ ng generate component Home --project inventory --inline-style true --spec false
-```
-
-Build the library so you can use it
-
-```
-$ ng build inventory
 ```
 
 ### Top Rated Library
@@ -226,6 +231,7 @@ The Generator library has several components
 
 ```
 $ ng generate component Home --project toprated --inline-style true --spec false
+$ ng generate component Book --project toprated --inline-style true --spec false
 ```
 
 Build the library so you can use it

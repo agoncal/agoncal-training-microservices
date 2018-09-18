@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NumberGeneratorService} from "../shared/service/number-generator.service";
 
 @Component({
   selector: 'gen-book-number',
@@ -9,13 +10,14 @@ export class BookNumberComponent implements OnInit {
 
   bookNumber: string;
 
-  constructor(private numberApi: NumbersApi) { }
+  // constructor(private numberGeneratorService: NumberGeneratorService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  generateBookNumber() {
-    this.numberApi.generateBookNumber().subscribe(bookNumber => this.bookNumber = bookNumber);
-  }
+  // generateBookNumber() {
+  //   this.numberGeneratorService.generateNumberUsingGET().subscribe(bookNumber => this.bookNumber = bookNumber);
+  // }
 
 }

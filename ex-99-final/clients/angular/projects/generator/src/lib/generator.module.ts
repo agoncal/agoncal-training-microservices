@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GeneratorRoutingModule } from './generator-routing.module';
 import { GeneratorComponent } from './generator.component';
 import { HomeComponent } from './home/home.component';
-import { GeneratorRoutingModule } from "./generator-routing.module";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BookNumberComponent } from './book-number/book-number.component';
 
 @NgModule({
@@ -15,6 +15,8 @@ import { BookNumberComponent } from './book-number/book-number.component';
     HomeComponent,
     BookNumberComponent
   ],
-  exports: [GeneratorComponent]
+  exports: [
+    GeneratorComponent
+  ]
 })
 export class GeneratorModule { }
