@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-book-heading">Create or edit a Book</h2>
+            <div>
+                <div class="form-group" [hidden]="!book.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="book.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isbn">Isbn</label>
+                    <input type="text" class="form-control" name="isbn" id="field_isbn"
+                        [(ngModel)]="book.isbn" required maxlength="15"/>
+                    <div [hidden]="!(editForm.controls.isbn?.dirty && editForm.controls.isbn?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isbn?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isbn?.errors?.maxlength">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="book.title" required minlength="2" maxlength="300"/>
+                    <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.minlength">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.maxlength">
+                        This field cannot be longer than 300 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nbOfCopies">Nb Of Copies</label>
+                    <input type="number" class="form-control" name="nbOfCopies" id="field_nbOfCopies"
+                        [(ngModel)]="book.nbOfCopies" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.nbOfCopies?.dirty && editForm.controls.nbOfCopies?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nbOfCopies?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nbOfCopies?.errors?.min">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nbOfCopies?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_warehouse">Warehouse</label>
+                    <select class="form-control" name="warehouse" [(ngModel)]="book.warehouse" id="field_warehouse"  required>
+                        <option value="WAREHOUSE_EAST">WAREHOUSE_EAST</option>
+                        <option value="WAREHOUSE_WEST">WAREHOUSE_WEST</option>
+                        <option value="WAREHOUSE_EUROPE">WAREHOUSE_EUROPE</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.warehouse?.dirty && editForm.controls.warehouse?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.warehouse?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_location">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                        [(ngModel)]="book.location" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

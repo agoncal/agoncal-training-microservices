@@ -1,3 +1,61 @@
-<p>
-  book works!
-</p>
+<div>
+  <h2 id="page-heading">
+    <span>Books</span>
+    <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-book" [routerLink]="['/book/new']">
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span >
+            Create new Book
+            </span>
+    </button>
+  </h2>
+  <br/>
+  <div class="table-responsive" *ngIf="books">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Isbn</span></th>
+        <th><span>Title</span></th>
+        <th><span>Nb Of Copies</span></th>
+        <th><span>Warehouse</span></th>
+        <th><span>Location</span></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books ;trackBy: trackId">
+        <td><a [routerLink]="['/book', book.id, 'view' ]">{{book.id}}</a></td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.nbOfCopies}}</td>
+        <td>{{book.warehouse}}</td>
+        <td>{{book.location}}</td>
+        <td class="text-right">
+          <div class="btn-group flex-btn-group-container">
+            <button type="submit"
+                    [routerLink]="['/book', book.id, 'view' ]"
+                    class="btn btn-info btn-sm">
+              <fa-icon [icon]="'eye'"></fa-icon>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+            <button type="submit"
+                    [routerLink]="['/book', book.id, 'edit']"
+                    class="btn btn-primary btn-sm">
+              <fa-icon [icon]="'pencil-alt'"></fa-icon>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+            <button type="submit"
+                    [routerLink]="['/', { outlets: { popup: 'book/'+ book.id + '/delete'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-danger btn-sm">
+              <fa-icon [icon]="'times'"></fa-icon>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

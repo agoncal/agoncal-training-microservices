@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="book">
+            <h2><span>Book</span> {{book.id}}</h2>
+            <hr>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Isbn</span></dt>
+                <dd>
+                    <span>{{book.isbn}}</span>
+                </dd>
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{book.title}}</span>
+                </dd>
+                <dt><span>Nb Of Copies</span></dt>
+                <dd>
+                    <span>{{book.nbOfCopies}}</span>
+                </dd>
+                <dt><span>Warehouse</span></dt>
+                <dd>
+                    <span>{{book.warehouse}}</span>
+                </dd>
+                <dt><span>Location</span></dt>
+                <dd>
+                    <span>{{book.location}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/book', book.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
